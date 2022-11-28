@@ -34,7 +34,7 @@ void insert()
 		printf("\nenter the element to insert: ");
 		scanf("%d",&ins);
 		cq[rear]=ins;
-		//printf("%d",cq[rear]);
+		printf("%d",rear);
 	}
 	
 }
@@ -62,6 +62,7 @@ void delete()
 	{
 		printf("\nqueue is empty");
 	}
+	printf("front=%d         rear=%d",front,rear);
 }
 void display()
 {
@@ -72,10 +73,10 @@ void display()
 	}
 	if(front>rear)
 	{	
-		for(i=front;i<N;i++)
-			printf("\t%d",cq[i]);
 		for(j=0;j<=rear;j++)
 			printf("\t%d",cq[j]);
+		for(i=front;i<N;i++)
+			printf("\t%d",cq[i]);
 	}	
 	else
 	{
