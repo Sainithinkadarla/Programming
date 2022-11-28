@@ -62,7 +62,6 @@ void delete()
 	{
 		printf("\nqueue is empty");
 	}
-	printf("front=%d         rear=%d",front,rear);
 }
 void display()
 {
