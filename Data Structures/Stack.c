@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-void push();
-void pop();
+void enqueue();
+void dequeue();
 void display();
 
 void main()
@@ -42,7 +42,7 @@ void display()
 {
 	if(top!=-1)
 	{	
-		for(i=top;i>-1;i--)
+		for(i=top;i>=0;i--)
 		{
 			printf("\n%d",s[i]);
 		}	
