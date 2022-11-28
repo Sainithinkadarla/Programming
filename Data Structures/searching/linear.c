@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void linear_search();
+void linear_search(int key);
 
 void main()
 {
@@ -14,13 +14,13 @@ int linear_search(int key)
 	if(pointer==5)	
 	{
 		printf("element not found");
-		return 0;
+		//eturn 0;
 	}
 	else
 	{
 		if(key==array[pointer])
 		{
-			printf("element found");
+			printf("%d element found at %d",key,pointer);
 		}
 		else
 		{	
