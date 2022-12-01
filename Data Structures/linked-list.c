@@ -48,7 +48,7 @@ struct node *traverse()
 
 struct node *delete()
 {
-	struct node *t;
+	struct node *t=tail;
 	if (head)//terminates at head equals to NULL
 	{
 		
@@ -65,8 +65,13 @@ void main()
 	/*struct node *n1=getnode(10);
 	printf("data= %d    link=%p",n1->data, p);*/
 	int i=0;
-
-	for()
+	insert();
+	insert();
+	insert();
+	insert();
+	
+	
 	traverse();
-			
+	printf("data= %d    link=%p",head->data, head);
+	printf("data= %d    link=%p",tail->data, tail);
 }
