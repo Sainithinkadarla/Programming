@@ -1,3 +1,8 @@
+/*a class definition. 
+To write this class you will need to demonstrate knowledge of and ability to apply the following skills:
+Declare a private instance variable in a Java class
+Initialize a private instance variable in a Java class
+Implement an attribute as a private instance variable in a Java class*/
 public class Private_instance_variable
 {
     private int data=10;

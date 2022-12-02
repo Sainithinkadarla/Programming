@@ -1,3 +1,4 @@
+//Use an if statement to get the computer to make a decision
 public class If_statement
 {
     public static void main(String[] args)
