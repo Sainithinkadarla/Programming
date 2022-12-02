@@ -6,8 +6,7 @@ public class Variable_as_an_argument{
     }   
 
 public static void main(String[] args)
-{
-    
+{   
     function(1);
 }
 }
