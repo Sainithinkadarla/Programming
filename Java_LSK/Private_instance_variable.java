@@ -5,11 +5,11 @@ Initialize a private instance variable in a Java class
 Implement an attribute as a private instance variable in a Java class*/
 public class Private_instance_variable
 {
-    private int data=10;
+    private int data=10; // declaring and initializing the private instance variable
     public static void main(String[] args)
     {
-        Private_instance_variable obj = new Private_instance_variable();
-        System.out.println(obj.data);
+        Private_instance_variable obj = new Private_instance_variable();//creating the object 
+        System.out.println(obj.data);//accessing the private instance variable 
 
     }
 }
