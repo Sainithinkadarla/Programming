@@ -1,6 +1,6 @@
  Write a method that takes arguments and returns a value   --- S
-- Write a method that takes an array as an argument             V
-- Use a loop to iterate over the elements of an array           V
+- Write a method that takes an array as an argument             S
+- Use a loop to iterate over the elements of an array           S
 - Use operators to construct an expression                 ---s
 - Use an if statement to get the computer to make a decision    S
 
@@ -11,6 +11,6 @@ Initialize a private instance variable in a Java class
 Implement an attribute as a private instance variable in a Java class               S
 
 Assign a value to an instance variable from within a constructor method V
-Implement a parameterized constructor method in a Java class            V
+Implement a parameterized constructor method in a Java class            S
 Write an instance method that takes no arguments and returns a value       V
 Retrieve the value stored in an instance variable from within an instance method    
