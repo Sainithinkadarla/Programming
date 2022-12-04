@@ -146,7 +146,7 @@ void delete_rear()
 			break;
 			case 6: display_rear();
 			break;
-			case 7  exit(0);
+			case 7:  exit(0);
 			break;
 		}
 	}
