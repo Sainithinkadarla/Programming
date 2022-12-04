@@ -60,7 +60,7 @@ void insert_rear()
 	}
 }
 
-/*
+
 void display_front()
 {
 	if(ins_rear!=-1)
@@ -78,7 +78,7 @@ void display_front()
 
 void display_rear()
 {
-        if(ins_rear!=-1)
+        if(ins_front!=-1)
         {
                 for(i=ins_front;i<=del_rear;i++)
                 {
@@ -91,17 +91,18 @@ void display_rear()
         }
 
 }
-*/
+
 void delete_front()
 {
 	if(ins_rear!=-1)
 	{
 		printf("\ndeleted element %d",q[del_front]);
-		del_front++;
-		if(del_front==ins_rear && )
+		if(del_front==delete_rear)
 		{
-			del_front=ins_rear=-1;		
+			del_front=ins_rear=-1;
+			ins_front=del_rear=N;		
 		}
+		del_front++;
 	}	
 	else
 	{
@@ -111,15 +112,24 @@ void delete_front()
 
 void delete_rear()
 {
-
+	if(ins_front!=N)
+	{
+		printf("\ndeleted element %d",q[del_rear]);
+		if(del_rear==del_front)
+		{
+			del_front=ins_rear=-1;
+			ins_front=del_rear=N;		
+		}
+		del_front--;
+	}	
+	else
+	{
+		printf("\nqueue is empty");
+	}
 }
-	insert_front();
-	insert_front();
-	insert_front();
-	insert_front();
-	insert_front();
-	//display_front();
-	//display_rear();
+	
+	display_front();
+	display_rear();
 
 }
 
