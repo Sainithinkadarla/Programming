@@ -6,10 +6,10 @@ void display();
 
 void main()
 {
-int e,i,N,front=-1,rear=-1,c,q[N];
+int e,i,N,front=-1,rear=-1,c;
 printf("\nenter the queue size : ");
 scanf("%d",&N);
-
+int q[N];
 void enqueue()
 {
 	if(rear<N-1)
