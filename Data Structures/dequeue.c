@@ -15,7 +15,7 @@ void main()
 	//				 : ins_rear=-1;
 	//				 : del_front=-1;
 	int c,i,N=4,del_front=-1,ins_rear=-1,del_rear=N,ins_front=N;
-	printf("%d %d",del_front,ins_rear);
+	printf("%d %d",del_rear,ins_front);
 	//printf("Enter the queue size : ");
 	//scanf("%d",&N);
 	int q[N];
@@ -31,7 +31,7 @@ void insert_front()
 		q[ins_front]=x;
 		if(del_rear==N)
 		{
-			del_front--;
+			del_rear--;
 		}
 	}
 	else
@@ -78,11 +78,11 @@ void display_front()
 
 void display_rear()
 {
-        if(ins_front!=-1)
+        if(ins_front!=-N)
         {
                 for(i=ins_front;i<=del_rear;i++)
                 {
-                        printf("\n%d",q[i]);
+                        printf("\t%d",q[i]);
                 }
         }
         else
@@ -97,7 +97,7 @@ void delete_front()
 	if(ins_rear!=-1)
 	{
 		printf("\ndeleted element %d",q[del_front]);
-		if(del_front==delete_rear)
+		if(del_front==del_rear)
 		{
 			del_front=ins_rear=-1;
 			ins_front=del_rear=N;		
@@ -127,9 +127,14 @@ void delete_rear()
 		printf("\nqueue is empty");
 	}
 }
-	
+	insert_rear();
+	insert_front();
+	printf("%d %d",del_rear,ins_front);
+	insert_front();
+	printf("%d %d",del_rear,ins_front);
+	insert_rear();
+
 	display_front();
 	display_rear();
-
 }
 
