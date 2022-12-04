@@ -129,7 +129,7 @@ void delete_rear()
 }
 	while(1)
 	{
-		printf("\n\nchoose a operation\n1. Insert from rear\n2. Insert from front \n3. Delete from front\n4. Delete from rear\n5. Display from front\n6. Display from rear\n 7. Exit\n: ");
+		printf("\n\nchoose a operation\n1. Insert from rear\n2. Insert from front \n3. Delete from front\n4. Delete from rear\n5. Display from front\n6. Display from rear\n7. Exit\n: ");
 		scanf("\n%d",&c);
 
 		switch(c)
