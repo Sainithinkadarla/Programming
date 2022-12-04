@@ -127,14 +127,28 @@ void delete_rear()
 		printf("\nqueue is empty");
 	}
 }
-	insert_rear();
-	insert_front();
-	printf("%d %d",del_rear,ins_front);
-	insert_front();
-	printf("%d %d",del_rear,ins_front);
-	insert_rear();
+	while(1)
+	{
+		printf("\n\nchoose a operation\n1. Insert from rear\n2. Insert from front \n3. Delete from front\n4. Delete from rear\n5. Display from front\n6. Display from rear\n 7. Exit\n: ");
+		scanf("\n%d",&c);
 
-	display_front();
-	display_rear();
+		switch(c)
+		{
+			case 1 : insert_rear(); 
+			break;
+			case 2 : insert_front();
+			break;
+			case 3 : delete_front(); 
+			break;
+			case 4 : delete_rear();
+			break;
+			case 5: display_front();
+			break;
+			case 6: display_rear();
+			break;
+			case 7  exit(0);
+			break;
+		}
+	}
 }
 
