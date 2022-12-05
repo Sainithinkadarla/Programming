@@ -15,11 +15,7 @@ void main()
 	//				 : ins_rear=-1;
 	//				 : del_front=-1;
 	int c,i,N=4,del_front=-1,ins_rear=-1,del_rear=N,ins_front=N;
-	printf("%d %d",del_rear,ins_front);
-	//printf("Enter the queue size : ");
-	//scanf("%d",&N);
 	int q[N];
-
 void insert_front()
 {
 	if(ins_front!=0 && ins_front-1!=ins_rear)
@@ -151,4 +147,6 @@ void delete_rear()
 		}
 	}
 }
+
+
 
