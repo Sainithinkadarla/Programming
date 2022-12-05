@@ -44,6 +44,7 @@ struct node *insertbetween(int index)
 	struct node *t=getnode(data);//new node which is going to be inserted
 	
 	struct node *c=head;//counting node
+
 	while(c!=NULL)
 	{
 		c=c->link;
@@ -109,10 +110,8 @@ void main()
 	delete();
 	traverse();
 	insertbetween(2);
-	printf("\n\n\n"); 												//TESTING	
 	traverse();
-	insertathead();
-	printf("\n\n\n"); 												//TESTING	
+	insertathead();	
 	traverse();
 
 
