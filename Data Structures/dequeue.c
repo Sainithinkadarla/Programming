@@ -116,7 +116,7 @@ void delete_rear()
 			del_front=ins_rear=-1;
 			ins_front=del_rear=N;		
 		}
-		del_front--;
+		del_rear--;
 	}	
 	else
 	{
