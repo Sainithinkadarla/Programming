@@ -1,1 +1,1 @@
-git add . && git commit -m "comments" && git push
+git add . && git commit -m "linked-stack" && git push
