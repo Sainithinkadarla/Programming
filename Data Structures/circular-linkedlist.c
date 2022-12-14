@@ -39,26 +39,51 @@ struct node *delete()
     t=head;
     if(head)
     {
-	printf("hi");		
+        head=head->link;
+        if (head->link==head)
+        {
+            printf("\n%d deleted",t->data);
+            head=NULL;
+            tail=NULL;
+            free(t);
+        }
+        else
+        {
+            printf("\n%d deleted",t->data);
+            free(t);
+            tail->link=head;
+        }
+    }
+    else
+    {
+        printf("\nlinked list is empty");
     }
 }
 struct node *display()
 {
 	t=head;
-	do
-	{
-		printf("%d\t",t->data);		
-		t=t->link;
-	}while(t!=head);
-
+    if(head)
+    {
+	    do
+        {
+            printf("%d\t",t->data);		
+            t=t->link;
+        }while(t!=head);
+    }
+    else
+    {
+        printf("\nlinked list is empty");
+    }
 
 }
 
 void main()
 {
-	insert();
-	insert();
-	insert();
-	insert();
+	int i;
+    for (i=0; i<4;i++)
+    insert();
+    display();
+    for (i=0; i<=4;i++)
+    delete();
 	display();
 }

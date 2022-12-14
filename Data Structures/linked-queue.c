@@ -42,6 +42,11 @@ struct node *dequeue()
         front=front->link;
         printf("\n%d dequeued",t->data);
         free(t);
+        if (!(front))
+        {
+            front=NULL;
+            rear=NULL;
+        }
     }
     else
     {
