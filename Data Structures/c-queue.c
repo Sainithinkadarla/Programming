@@ -7,10 +7,7 @@ void display();
 void main()
 {
 	int c,N=4,ins,front=-1,rear=-1,cq[N];
-	printf("enter the queue size: ");
-	scanf("%d",&N);
 	
-
 void insert()
 {
 	if(front==0&&rear==N-1 || rear+1==front) 	
