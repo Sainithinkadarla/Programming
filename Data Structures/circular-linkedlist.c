@@ -5,7 +5,7 @@
 struct node
 {
     int data;
-    struct nod *link;
+    struct node *link;
 }*head=NULL, *tail=NULL, *t;
 
 struct node *getnode(int data)
@@ -31,6 +31,7 @@ struct node *insert()
         head=t;
     }
     tail=t;
+ 	tail->link=head;   
 }
 
 struct node *delete()
@@ -38,6 +39,26 @@ struct node *delete()
     t=head;
     if(head)
     {
-
+	printf("hi");		
     }
+}
+struct node *display()
+{
+	t=head;
+	do
+	{
+		printf("%d\t",t->data);		
+		t=t->link;
+	}while(t!=head);
+
+
+}
+
+void main()
+{
+	insert();
+	insert();
+	insert();
+	insert();
+	display();
 }
