@@ -76,8 +76,6 @@ struct node *traverse()
 	int c=1;																		//TESTING
 	while(t!=NULL)
 	{
-		//printf("\ndata=%d\t   its address pointer=%p",t->data,t);
-		//printf("\tpointer= %p\t\n",t->link);
 		printf("\n%d ",c);
 		printf("%d\t",t->data);
 		t=t->link;
@@ -100,15 +98,14 @@ struct node *delete()
 struct node *reverse()
 {
 	struct node *previous=NULL, *current=NULL, *post=head;
-	while(post!=NULL)//post not equals to NULL
+	while(post)//post not equals to NULL
 	{
 		previous=current;
 		current=post;
 		post=current->link;
 		current->link=previous;
-		if(!(post)) //post equals to NULL
-			current=previous;
 	}
+	head=current;
 }
 
 void main()
@@ -129,11 +126,4 @@ void main()
 	printf("\nreverse after");
 	reverse();
 	traverse();
-
-
-	/*struct node *n1=getnode(10);
-	printf("data= %d    link=%p",n1->data, p);
-
-	printf("data= %d    link=%p",head->data, head->link);
-	printf("data= %d    link=%p",tail->data, tail->link);*/
 }
