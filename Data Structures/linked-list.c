@@ -97,6 +97,19 @@ struct node *delete()
 
 }
 
+struct node *reverse()
+{
+	struct node *previous=NULL, *current=NULL, *post=head;
+	while(post!=NULL)//post not equals to NULL
+	{
+		previous=current;
+		current=post;
+		post=current->link;
+		current->link=previous;
+		if(!(post)) //post equals to NULL
+			current=previous;
+	}
+}
 
 void main()
 {
@@ -112,6 +125,9 @@ void main()
 	insertbetween(2);
 	traverse();
 	insertathead();	
+	traverse();
+	printf("\nreverse after");
+	reverse();
 	traverse();
 
 
