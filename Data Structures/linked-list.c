@@ -86,7 +86,7 @@ struct node *traverse()
 struct node *delete()
 {
 	struct node *t=head;
-	if (head!=NULL)//terminates at head equals to NULL
+	if (head)//terminates at head equals to NULL
 	{
 		head=head->link;
 		printf("\n%d deleted",t->data);
