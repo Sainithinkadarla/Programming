@@ -49,7 +49,6 @@ struct node *insertbetween(int index)
 	while(c!=NULL)
 	{
 		c=c->link;
-		if(t->link!=c)
 		if(counter==index-1)
 		{
 			printf("data=%d    counter=%d",c->data, counter);																	//TESTING
@@ -146,29 +145,25 @@ struct node *reverse()
 	head=current;
 }
 
-struct node *deletebetween(int index)
+struct node *deleterandom(int index)
 {
-	int counter=1;//counter
-	
-	struct node *c=head;//counting node
+    int counter=1;//counter
+    
+    struct node *c=head;//counting node
 
-	while(c!=NULL)
-	{
-		c=c->link;
-		if(counter==index-2)
-		{
-			t=c;
-		}
-		
-		if(counter==index-1)
-		{
-			printf("data=%d    counter=%d",c->data, counter);																	//TESTING
-			t->link =c->link;
-			free(c);
-		}
-		counter+=1;
-	}
-	printf("No. of nodes = %d",counter);
+    while(c!=NULL)
+    {
+        if(counter==index-1)
+        {
+            t=c->link;
+            c->link=t->link;
+            printf("%d deleted",c->data);
+            free(t);
+        }
+        c=c->link;
+        counter+=1;
+    }
+    printf("No. of nodes = %d",counter);
 }
 
 void main()
@@ -182,7 +177,7 @@ void main()
 	traverse();
 	delete();
 	traverse();
-	deletebetween();
+	deleterandom(2);
 	traverse();
 
 }
