@@ -108,31 +108,6 @@ struct node *delete()
 	}
 }
 
-/*struct node *deleteattail()
-{
-	struct node *t=head;
-	if (head)//terminates at head equals to NULL
-	{
-		if(head->link)
-		{
-			head=head->link;
-			printf("\n%d deleted",t->data);
-			free(t);
-		}
-		else
-		{
-			printf("\n%d deleted",t->data);
-			free(t);
-			head=NULL;
-			tail=NULL;
-		}
-	}
-	else
-	{
-		printf("\nlinked list is empty");
-	}
-}*/
-
 struct node *deleteattail()
 {
     t=head;
