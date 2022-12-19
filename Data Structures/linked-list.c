@@ -85,7 +85,7 @@ struct node *traverse()
 
 struct node *delete()
 {
-	struct node *t=head;
+	t=head;
 	if (head)//terminates at head equals to NULL
 	{
 		if(head->link)
@@ -133,6 +133,29 @@ struct node *delete()
 	}
 }*/
 
+struct node *deleteattail()
+{
+    t=head;
+    if(head)
+    {
+        if(head->link)
+        {
+            while(t->link!=tail)
+            {
+                t=t->link;
+            }
+            printf("%d deleted\n",t->data);
+            free(tail);
+            tail=t;
+            tail->link=NULL;
+        }
+    }
+    else
+    {
+        printf("\n linked list is empty");
+    }
+}
+
 struct node *reverse()
 {
 	struct node *previous=NULL, *current=NULL, *post=head;
@@ -146,28 +169,6 @@ struct node *reverse()
 	head=current;
 }
 
-struct node *deleteattail()
-{
-	struct node *t=head;
-	if(head)
-	{
-		if(head->link)
-		{
-			while(t->link!=tail)
-			{
-				t=t->link;
-			}
-			printf("%d deleted\n",t->data);
-			free(tail);
-			tail=t;
-		}
-	}
-	else
-	{
-		printf("\n linked list is empty");
-	}
-}
-
 void main()
 {
 	int i=0;
@@ -179,13 +180,7 @@ void main()
 	traverse();
 	delete();
 	traverse();
-	insertbetween(2);
-	traverse();
-	insertathead();	
-	traverse();
-	printf("\nreverse after");
-	reverse();
-	traverse();
 	deleteattail();
+	traverse();
 
 }
