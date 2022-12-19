@@ -3,10 +3,10 @@
 
 struct node
 {
-    int data;
     struct node *previous;
+    int data;
     struct node *next;
-} *t, *head=NULL, *tail=NULL;
+}*t,*head=NULL,*tail=NULL;
 
 struct node *getnode(int data)
 {
@@ -17,66 +17,36 @@ struct node *getnode(int data)
     return t;
 }
 
-struct node *swap(struct node *previous, struct node *next)
-{
-    struct node *temp=previous;
-    next=previous;
-    previous=temp;
-}
-
-struct node *insert()
+void insert()//from end
 {
     int data;
-    printf("\nEnter data to insert: ");
+    printf("\nEnter the data to insert: ");
     scanf("%d",&data);
     t=getnode(data);
     if(head)
     {
         tail->next=t;
         t->previous=tail;
-        tail=t;
+        
     }
     else
     {
         head=t;
     }
     tail=t;
+    tail->next=head;
+    head->previous=tail;
 }
 
-struct node *display()
+void display()
 {
-    t=head;
     if(head)
     {
-        while(t)
+        for( t=head; t->next!=head; t=t->next)
         {
             printf("%d\t",t->data);
-            t=t->next;
         }
-    }
-    else
-    printf("\nlinked list is empty");
-}
-
-struct node *delete()
-{
-    t=head;
-    if(head)
-    {
-        if(head->next)
-        {
-            head=head->next;
-            printf("%d deleted\n",t->data);
-            free(t);
-        }
-        else
-        {
-            printf("%d deleted\n",t->data);
-            free(t);
-            head=NULL;
-            tail=NULL;
-        }
-
+        printf("%d",t->data);
     }
     else
     {
@@ -84,17 +54,43 @@ struct node *delete()
     }
 }
 
+void delete()//from head
+{
+    if(head)
+    {
+        t=head;
+        head=head->next;
+        if(head->next!=head)
+        {
+            printf("\n%d deleted",t->data);
+            free(t);
+            tail->next=head;
+            head->previous=tail;
+        }
+        else
+        {
+            printf("\n%d deleted",t->data);
+            head=NULL;
+            tail=NULL;
+            free(t);
+        }
+    }
+    else
+    {
+        printf("\nlinked list is empty");
+    }
+}
+
+
+
+
 void main()
 {
     int i;
-    for (i=0;i<4;i++)
-    {
+    for(i=0; i<4; i++)
         insert();
-    }
     display();
-    for (i=0;i<=4;i++)
-    {
-        delete();
-    }
-    display();
+    for(i=0; i<=4; i++)
+    delete();
+
 }
