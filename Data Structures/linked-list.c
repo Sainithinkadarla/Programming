@@ -55,7 +55,7 @@ struct node *insertbetween(int index)
 			t->link=c->link;
 			c->link=t;
 		}
-		counter+=1;
+		counter+=1;4
 	}
 	printf("No. of nodes = %d",counter);
 }
