@@ -55,7 +55,7 @@ struct node *insertbetween(int index)
 			t->link=c->link;
 			c->link=t;
 		}
-		counter+=1;4
+		counter+=1;
 	}
 	printf("No. of nodes = %d",counter);
 }
@@ -166,6 +166,24 @@ struct node *deleterandom(int index)
     printf("No. of nodes = %d",counter);
 }
 
+void search()
+{
+	int key,flag=0;
+	t=head;
+	printf("\nEnter the data to search in linked list: ");
+	scanf("%d",&key);
+	while(t)
+	{
+		if(t->data==key)
+			flag=1;
+		t=t->link;
+	}
+	if(flag==1)
+		printf("\n%d is found",key);
+	else
+		printf("\n%d is not found",key);
+}
+
 void main()
 {
 	int i=0;
@@ -173,11 +191,6 @@ void main()
 	{
 		insert();
 	}
-	
 	traverse();
-	delete();
-	traverse();
-	deleterandom(2);
-	traverse();
-
+	search();
 }

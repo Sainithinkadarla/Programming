@@ -16,7 +16,7 @@ struct node *getnode(int data)
     return t;
 }
 
-struct node *insert()
+struct node *insert()//at end
 {
     int data;
     printf("\nEnter the data to insert: ");
@@ -34,7 +34,7 @@ struct node *insert()
  	tail->link=head;   
 }
 
-struct node *delete()
+struct node *delete()//at first
 {
     t=head;
     if(head)
@@ -59,6 +59,7 @@ struct node *delete()
         printf("\nlinked list is empty");
     }
 }
+
 struct node *display()
 {
 	t=head;
@@ -66,7 +67,7 @@ struct node *display()
     {
 	    do
         {
-            printf("%d\t",t->data);		
+            printf("\t%d\t",t->data);		
             t=t->link;
         }while(t!=head);
     }
@@ -77,13 +78,63 @@ struct node *display()
 
 }
 
+void search()
+{
+    int key,flag=0;
+    t=head;
+    printf("\nEnter the data to search in linked list: ");
+    scanf("%d",&key);
+    do
+    {
+        if(t->data==key)
+            flag=1;	
+        t=t->link;
+    }while(t!=head);
+    if(flag==1)
+        printf("\n%d is found",key);
+    else
+        printf("\n%d is not found",key);
+}
+
+void deleteend()
+{
+    t=head;
+    if(head)
+    {
+        while(t->link!=tail)
+        {
+            t=t->link;
+        }
+        printf("\n%d deleted",t->data);
+        t->link=head;
+        free(tail);
+        tail=t;
+    }
+    else
+    {
+        printf("\nlist is empty");
+    }
+}
+
+void insertfromstart()
+{
+    int data;
+    printf("\nEnter the data to insert: ");
+    scanf("%d",&data);
+    t=getnode(data);
+    if(head)
+    {
+        t->link=head;
+    }
+    head=t;
+    tail->link=head;
+}
+
 void main()
 {
 	int i;
     for (i=0; i<4;i++)
     insert();
     display();
-    for (i=0; i<=4;i++)
-    delete();
-	display();
+    search();
 }
