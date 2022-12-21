@@ -58,6 +58,24 @@ struct node *display()
     printf("\nlinked list is empty");
 }
 
+void search()
+{
+    int key,flag=0;
+    t=head;
+    printf("\nEnter the key to search in the linked list: ");
+    scanf("%d",&key);
+    while(t)
+    {
+        if(t->data==key)
+            flag=1;
+        t=t->next;
+    }
+    if(flag==1)
+        printf("\n%d is found\n",key);
+    else
+        printf("\n%d is not found\n",key);
+}
+
 struct node *delete()
 {
     t=head;
@@ -92,9 +110,5 @@ void main()
         insert();
     }
     display();
-    for (i=0;i<=4;i++)
-    {
-        delete();
-    }
-    display();
+    search();
 }

@@ -81,8 +81,26 @@ void delete()//from head
     }
 }
 
-
-
+void search()
+{
+    int key,flag=0;
+    t=head;
+    printf("\nEnter the key to search in linked list");
+    scanf("%d",&key);
+    if(head)
+    {
+        for( t=head; t->next!=head; t=t->next)
+        {
+            if(t->data==key)
+                flag=1;
+        }
+        if(t->data == )
+    }
+    if(flag==1)
+        printf("\n%d is found\n",key);
+    else
+        printf("\n%d is not found\n",key);
+}
 
 void main()
 {
@@ -90,7 +108,6 @@ void main()
     for(i=0; i<4; i++)
         insert();
     display();
-    for(i=0; i<=4; i++)
-    delete();
+    search();
 
 }
