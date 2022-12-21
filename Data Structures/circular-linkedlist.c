@@ -65,11 +65,13 @@ struct node *display()
 	t=head;
     if(head)
     {
-	    do
+	    
+        while(t->link!=head)
         {
             printf("\t%d\t",t->data);		
             t=t->link;
-        }while(t!=head);
+        }
+        printf("\t%d\t",t->data);
     }
     else
     {
@@ -84,12 +86,14 @@ void search()
     t=head;
     printf("\nEnter the data to search in linked list: ");
     scanf("%d",&key);
-    do
+    while(t->link!=head)
     {
         if(t->data==key)
             flag=1;	
         t=t->link;
-    }while(t!=head);
+    }
+    if(t->data==key)
+        flag=1;
     if(flag==1)
         printf("\n%d is found",key);
     else
