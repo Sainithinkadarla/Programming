@@ -85,7 +85,7 @@ void search()
 {
     int key,flag=0;
     t=head;
-    printf("\nEnter the key to search in linked list");
+    printf("\nEnter the key to search in linked list: ");
     scanf("%d",&key);
     if(head)
     {
@@ -94,7 +94,8 @@ void search()
             if(t->data==key)
                 flag=1;
         }
-        if(t->data == )
+        if(t->data == key)
+            flag=1;
     }
     if(flag==1)
         printf("\n%d is found\n",key);
