@@ -102,6 +102,37 @@ struct node *delete()
     }
 }
 
+void insertatstart()
+{
+    int data;
+    printf("\nEnter the data to insert: ");
+    scanf("%d",&data);
+    t=getnode(data);
+    if(head)
+    {
+        head->previous=t;
+        t->next=head;
+    }
+    head=t;
+}
+
+void deleteatend()
+{
+    if(head)
+    {
+        for(t=head; t->next!=tail; t=t->next)
+        {}
+            t->next=tail->next;
+            printf("\n%d deleted\n",tail->data);
+            free(tail);
+            t=tail;
+    }
+    else
+    {
+        printf("\nlinked list is empty");
+    }
+}
+
 void main()
 {
     int i;
@@ -110,5 +141,8 @@ void main()
         insert();
     }
     display();
-    search();
+    insertatstart();
+    display();
+    deleteatend();
+    display();
 }

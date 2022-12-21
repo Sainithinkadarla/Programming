@@ -103,6 +103,26 @@ void search()
         printf("\n%d is not found\n",key);
 }
 
+void insertathead()
+{
+    int data;
+    printf("\nEnter the data to insert: ");
+    scanf("%d",&data);
+    t=getnode(data);
+    if(head)
+    {
+        head->previous=t;
+    }
+    else
+    {
+        tail=t;
+    }
+    t->next=head;
+    t->previous=tail;
+    tail->previous=t;
+    head=t;
+}
+
 void main()
 {
     int i;
@@ -110,5 +130,7 @@ void main()
         insert();
     display();
     search();
+    insertathead();
+    display();
 
 }
