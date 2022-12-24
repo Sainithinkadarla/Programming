@@ -134,11 +134,31 @@ void insertfromstart()
     tail->link=head;
 }
 
+void insertatrandom(int index)
+{
+    int data, counter=1;
+    printf("\nEnter the data to insert between: ");
+    scanf("%d",&data);
+    t=getnode(data);
+    struct node *count=head;
+    for(counter=1; count->link!=head; counter++)
+    {
+        count=count->link;
+        if(counter==index-1)
+        {
+            t->link=count->link;
+            count->link=t;            
+        }
+    }
+}
+
 void main()
 {
 	int i;
     for (i=0; i<4;i++)
     insert();
     display();
-    search();
+    insertatrandom(3);
+    display();
+
 }

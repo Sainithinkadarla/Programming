@@ -39,7 +39,7 @@ void insert()//from end
 }
 
 void display()
-{
+{   
     if(head)
     {
         for( t=head; t->next!=head; t=t->next)
@@ -106,22 +106,44 @@ void search()
 void insertathead()
 {
     int data;
-    printf("\nEnter the data to insert: ");
+    printf("\nEnter the data to insert at head: ");
     scanf("%d",&data);
     t=getnode(data);
+    t->next=head;
+    head->previous=t;
+    head=t;
+    t->previous=tail;
+    tail->next=head;
+
+}
+
+void deleteatend()
+{
     if(head)
     {
-        head->previous=t;
+        t=tail;
+        t=t->previous;
+        if(head->next!=head)
+        {
+            printf("\n%d deleted\n",tail->data);
+            free(tail);
+            t->next=head;
+            head->previous=tail;
+        }
+        else
+        {
+            printf("\n%d deleted",t->data);
+            head=NULL;
+            tail=NULL;
+            free(t);
+        }
     }
     else
     {
-        tail=t;
+        printf("\nLinked list is empty");
     }
-    t->next=head;
-    t->previous=tail;
-    tail->previous=t;
-    head=t;
 }
+
 
 void main()
 {
@@ -129,8 +151,7 @@ void main()
     for(i=0; i<4; i++)
         insert();
     display();
-    search();
-    insertathead();
+    deleteatend();
     display();
 
 }

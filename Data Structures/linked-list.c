@@ -51,7 +51,6 @@ struct node *insertbetween(int index)
 		c=c->link;
 		if(counter==index-1)
 		{
-			printf("data=%d    counter=%d",c->data, counter);																	//TESTING
 			t->link=c->link;
 			c->link=t;
 		}
@@ -192,5 +191,6 @@ void main()
 		insert();
 	}
 	traverse();
-	search();
+	insertbetween(3);
+	traverse();
 }
