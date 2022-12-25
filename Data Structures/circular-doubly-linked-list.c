@@ -144,6 +144,57 @@ void deleteatend()
     }
 }
 
+void insertatrandom(int index)
+{
+    int data, counter;
+    printf("\nEnter the data to insert: ");
+    scanf("%d",&data);
+    struct node *count=head;
+    t=getnode(data);
+    if(head)
+    {
+        for(counter=1; count->next!=head; counter++)
+        {
+            if(counter==index-1)
+            {
+                t->next=count->next;
+                t->next->previous=t;
+                t->previous=count;
+                count->next=t;
+            }
+            count=count->next;
+        }
+    }
+    else
+    {
+        head=t;
+    }
+}
+
+void deleteatrandom(int index)
+{
+    int counter;
+    struct node *count=head;
+    if(head)
+    {
+        for(counter=1; count->next!=head; counter++)
+        {
+            if(counter==index-1)
+            {
+                t=count->next;
+                printf("\n%d deleted",t->data);
+                count->next=t->next;
+                count->next->previous=count;
+                free(t);
+            }
+            count=count->next;
+        }
+    }
+    else
+    {
+        printf("\nLinked list is empty");
+    }
+}
 
 void main()
 {
@@ -151,7 +202,7 @@ void main()
     for(i=0; i<4; i++)
         insert();
     display();
-    deleteatend();
+    deleteatrandom(2);
     display();
 
 }
