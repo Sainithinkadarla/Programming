@@ -152,13 +152,39 @@ void insertatrandom(int index)
     }
 }
 
+void deleteatrandom(int index)
+{
+    int counter;
+    struct node *count=head;
+    if(head)
+    {
+        for(counter=1; count->link!=head; counter++)
+        {
+            if(counter==index-1)
+            {
+                t=count->link;
+                count->link=t->link;
+                printf("\n%d deleted\n",t->data);
+                free(t);
+            }
+            count=count->link;
+        }
+        
+    }
+    else
+    {
+        printf("\nLinked list is empty");
+    }
+}
+
+
 void main()
 {
 	int i;
     for (i=0; i<4;i++)
     insert();
     display();
-    insertatrandom(3);
+    deleteatrandom(3);
     display();
 
 }
