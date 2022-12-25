@@ -81,18 +81,20 @@ void main()
 {
     root=getnode(100);
     root->right_child=getnode(200);
+    root->right_child->left_child=getnode(400);
     root->left_child=getnode(300);
+    root->left_child->right_child=getnode(500);
 
-    printf("\nIn order");
+    printf("\nIn order\n");
     in_order(root);
-    printf("\nPre order");
+    printf("\nPre order\n");
     pre_order(root);
-    printf("\nPost order");
+    printf("\nPost order\n");
     post_order(root);
-    printf("\nConverse In order");
+    printf("\nConverse In order\n");
     converse_in_order(root);
-    printf("\nConverse Pre order");
+    printf("\nConverse Pre order\n");
     converse_pre_order(root);
-    printf("\nConverse Post order");
+    printf("\nConverse Post order\n");
     converse_post_order(root);
 }
