@@ -40,6 +40,27 @@ int nodes(struct node *root)
     }
 }
 
+int height(struct node *root)
+{
+    if(root)
+    {
+        int maxl=height(root->left_child);
+        int maxr=height(root->right_child);
+        if(maxl>maxr)
+        {
+            return maxl+1;
+        }
+        else
+        {
+            return maxr+1;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 void main()
 {
     root=getnode(100);
@@ -47,7 +68,8 @@ void main()
     root->right_child->left_child=getnode(400);
     root->left_child=getnode(300);
     root->left_child->right_child=getnode(500);
-
+    root->left_child->right_child->left_child=getnode(500);
     printf("%d",leaves(root));
     printf("%d",nodes(root));
+    printf("%d",height(root));
 }
