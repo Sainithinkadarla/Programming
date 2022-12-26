@@ -15,6 +15,12 @@ struct node *getnode(int data)
     return t;
 }
 
+
+int preorder[7]={4,2,5,1,3,6,7};
+int inorder[7]={1,2,3,4,5,6,7};
+
+s=0;
+
 struct node *insert(struct node *funroot, int data)
 {
 
