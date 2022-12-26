@@ -18,8 +18,7 @@ struct node *getnode(int data)
 int d[5]={4,2,5,1,6,14,8};*/
 struct node *insert(struct node *funroot, int data)
 {
-    struct node *temp=getnode(data);
-    if(funroot)
+    if(!root)
     {
         funroot=temp;
     }
