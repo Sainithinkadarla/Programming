@@ -1,12 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
-struct node 
+struct node
 {
     int data;
     struct node *left_child, *right_child;
-}*root,*t;
+}*root=NULL, *t;
 
 struct node *getnode(int data)
 {
@@ -16,64 +15,34 @@ struct node *getnode(int data)
     return t;
 }
 
-int preorder[7]={4,2,1,3,6,5,7};
-int inorder[7]={1,2,3,4,5,6,7};
-
-int s=0;
-
-struct node *build(int po[], int io[], int start, int end)
+struct node *insert(struct node *funroot, int data)
 {
-    int index;
-    if(start > end)
-    {
-        return NULL;
-    }
 
-    struct node *temp=getnode(po[s]);
+    struct node *temp=getnode(data);
     if(!root)
     {
-        root=temp;
+        funroot=temp;
     }
-
-    for(int i=start; i<=end; i++)
+    if(data<=funroot->data)
     {
-        if(po[s]==io[i])
-        {
-            index=i;
-            break;
-        }
+        temp->left_child=insert(root->left_child,data);
     }
-    s++;
-    temp->left_child=build(po, io, start, index-1);  
-    temp->right_child=build(po, io, index+1, end);
+    if(data>funroot->data)
+    {
+        temp->right_child=insert(root->right_child,data);
+    }
+    
     return temp;
-}
-
-void in_order(struct node *root)
-{
-    if(root)
-    {
-        in_order(root->left_child);
-        printf("\t%d",root->data);
-        in_order(root->right_child);
-    }
-}
-
-void pre_order(struct node *root)
-{
-    if(root)
-    {
-        printf("\t%d",root->data);
-        pre_order(root->left_child);
-        pre_order(root->right_child);
-    }
 }
 
 void main()
 {
-    build(preorder, inorder, 0, 6 );
-    printf("\nIn order\n");
-    in_order(root);
-    printf("\nPre order\n");
-    pre_order(root);
+    root=insert(root,7);
+    root=insert(root,1);
+    root=insert(root,2);
+    root=insert(root,3);
+    root=insert(root,17);
+    root=insert(root,11);
+    root=insert(root,18);
+    root=insert(root,27);
 }
