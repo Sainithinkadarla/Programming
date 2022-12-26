@@ -14,8 +14,7 @@ struct node *getnode(int data)
     t->left_child=t->right_child=NULL;
     return t;
 }
-/*int i=0;
-int d[5]={4,2,5,1,6,14,8};*/
+
 struct node *insert(struct node *funroot, int data)
 {
     if(!root)

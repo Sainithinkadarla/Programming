@@ -6,7 +6,7 @@ struct node
 {
     int data;
     struct node *left_child, *right_child;
-}*root=NULL,*t;
+}*root,*t;
 
 struct node *getnode(int data)
 {
