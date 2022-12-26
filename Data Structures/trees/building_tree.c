@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 
 struct node 
@@ -49,22 +50,12 @@ struct node *build(int po[], int io[], int start, int end)
     return temp;
 }
 
-void in_order(struct node *root)
-{
-    if(root)
-    {
-        in_order(root->left_child);
-        printf("\t%d",root->data);
-        in_order(root->right_child);
-    }
-}
-
 void pre_order(struct node *root)
 {
     if(root)
     {
-        printf("\t%d",root->data);
         pre_order(root->left_child);
+        printf("\t%d",root->data);
         pre_order(root->right_child);
     }
 }
@@ -72,8 +63,5 @@ void pre_order(struct node *root)
 void main()
 {
     build(preorder, inorder, 0, 6 );
-    printf("\nIn order\n");
-    in_order(root);
-    printf("\nPre order\n");
     pre_order(root);
 }

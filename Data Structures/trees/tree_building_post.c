@@ -16,10 +16,10 @@ struct node *getnode(int data)
     return t;
 }
 
-int preorder[7]={4,2,1,3,6,5,7};
+int postorder[7]={1,3,2,5,7,6,4};
 int inorder[7]={1,2,3,4,5,6,7};
 
-int s=0;
+int s=6;
 
 struct node *build(int po[], int io[], int start, int end)
 {
@@ -43,9 +43,9 @@ struct node *build(int po[], int io[], int start, int end)
             break;
         }
     }
-    s++;
-    temp->left_child=build(po, io, start, index-1);  
+    s--;
     temp->right_child=build(po, io, index+1, end);
+    temp->left_child=build(po, io, start, index-1);  
     return temp;
 }
 
@@ -59,21 +59,21 @@ void in_order(struct node *root)
     }
 }
 
-void pre_order(struct node *root)
+void post_order(struct node *root)
 {
     if(root)
     {
+        post_order(root->left_child);
+        post_order(root->right_child);
         printf("\t%d",root->data);
-        pre_order(root->left_child);
-        pre_order(root->right_child);
     }
 }
 
 void main()
 {
-    build(preorder, inorder, 0, 6 );
+    build(postorder, inorder, 0, 6 );
     printf("\nIn order\n");
     in_order(root);
-    printf("\nPre order\n");
-    pre_order(root);
+    printf("\nPost order\n");
+    post_order(root);
 }
