@@ -17,11 +17,15 @@ struct node *getnode(int data)
 
 void insert()
 {
+    int data;
+    printf("\nEnter the data to insert: ");\
+    scanf("%d",&data);
+    t=getnode(data);
     if(!root)
     {
         root=t;
     }
-    
+    if(root->data)
 }
 
 void main()
