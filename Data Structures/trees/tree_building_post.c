@@ -32,7 +32,7 @@ struct node *build(int po[], int io[], int start, int end)
     struct node *temp=getnode(po[s]);
     if(!root)
     {
-        root=t;
+        root=temp;
     }
 
     for(int i=start; i<=end; i++)
