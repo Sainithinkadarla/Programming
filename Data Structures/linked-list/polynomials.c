@@ -1,14 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-char expression[]="4x^3";
+char seperated[10][10];
+char expression[]="4x^3+3x^2";
+int term_index=0;
+
 
 struct term
 {
     int coef;
     int pow;
     struct term *link;
-}*head, *tail, *t;
+}*head=NULL, *tail=NULL, *t;
 
 
 struct term *getnode(int coef, int pow)
@@ -20,33 +23,57 @@ struct term *getnode(int coef, int pow)
     return t;
 }
 
-void insert_to_nodes()
+void insert_to_nodes(int coefficient, int power)
 {
-    int  coef=0, pow=0;
-    for(int i=0; expression[i]; i++)
+    t=getnode(coefficient,power);
+    if(head)
     {
-        
-        printf("\n%c",expression[i]);
+        tail->link=t;
+    }
+    else
+    {
+        head=t;
+    }
+    tail=t;
+}
+
+
+
+void seperation(char exp[])
+{   
+    int start=0, end=0;
+    for(int i=0;exp[i]!='\0';i++)
+    {
+        if(exp[i+1]=='+' || exp[i+1]=='\0')
+        {
+            end=i;
+            int expression_index=0;
+            for(int j=start; j<=end; j++,expression_index++)
+            {
+                seperated[term_index][expression_index]=exp[j];
+            }
+            term_index+=1;
+            start=end+2;
+        }
     }
 }
 
-void justforunderstanding()
+void linked()
 {
-    int data=0, pow=0;
-    t=getnode(data,pow ,0);
-    printf(" %d %d %p", t->coef, t->pow, t->link);
-}
-
-void evaluate()
-{
-    printf("\nI am nothing\n");
+    for(int i=0; i<term_index; i++)
+    {
+        for(int j=0;seperated[i][j]!='\0';j++)
+        {
+            if()
+            {
+                
+            }
+        }
+    }
 }
 
 void main()
 {
-    
-    insert_to_nodes();
-    evaluate();
-    insert_to_nodes();
-    justforunderstanding();
+  seperation(expression);
+  linked();
 }
