@@ -1,3 +1,7 @@
+/* 
+ * This is example from textbook
+ * Creating the thread by implementing the Runnable interface
+*/
 class NewThread implements Runnable
 {
     static int j =0;

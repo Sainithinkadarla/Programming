@@ -1,3 +1,8 @@
+/*
+ * This is written by own
+ * Creating thread by implementing the Runnable interface
+ */
+
 class Demo implements Runnable
 {
     static int j=0;
