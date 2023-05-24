@@ -7,16 +7,16 @@ class NewThread implements Runnable
     static int j =0;
 
     Thread t;
-    NewThread()
+    NewThread(String msg)
     {
-        t= new Thread(this, "Thread "+ (++j));
+        t= new Thread(this, msg);
         t.start();
     }
     public void run()
     {
         for(int i=0; i<=10; i++)
         {
-            System.out.println("Thread is running"+ t.getName());
+            System.out.println("Thread is running "+ t.getName());
         }
     }
 }
@@ -24,10 +24,10 @@ class NewThread implements Runnable
 public class ThreadDemo {
     public static void main(String[] args)
     {
-        new NewThread();
-        new NewThread();
-        new NewThread();
-        new NewThread();
+        new NewThread("Thread 1");
+        new NewThread("Thread 2");
+        new NewThread("Thread 3");
+        new NewThread("Thread 4");
     }
     
 }
