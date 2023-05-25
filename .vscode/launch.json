@@ -1,7 +1,12 @@
 {
     "configurations": [
-    
-    
+        {
+            "type": "java",
+            "name": "JoinDemo",
+            "request": "launch",
+            "mainClass": "JoinDemo",
+            "projectName": "Programming_4732db73"
+        },
         {
             "name": "C/C++: gcc.exe build and debug active file",
             "type": "cppdbg",
