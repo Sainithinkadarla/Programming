@@ -10,19 +10,6 @@ class Resources
 
 }
 
-class User1 implements Runnable
-{
-    Resources resource1, resource2;
-
-    public void run()
-    {
-        synchronized(resource1)
-        {
-            System.out.println(resource1.msg);
-        }
-    }
-}
-
 public class DeadlockDemo {
     public static void main(String[] args)
     {
