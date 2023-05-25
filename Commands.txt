@@ -2,3 +2,9 @@ git add . && git commit -m "linked-stack" && git push
 
 
 git add . ; git commit -m "test" ; git push
+
+
+
+Java Execution command
+
+javac -d .\class_files\ .\Java file name.java ; cd .\class_files\; java MainClassName ; cd ..
