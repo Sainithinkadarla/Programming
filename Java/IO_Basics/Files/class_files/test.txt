@@ -1,0 +1,15 @@
+Hi 
+How are you
+
+
+I am going dest file 
+This is just a bloddyt test with java command
+
+
+It just freaking working by using the java command !!!!!!
+And it's so fast
+
+Now let's read it
+Succesfully read it
+
+Now let's transfer it to dest.txt
