@@ -1,0 +1,24 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: nop
+
+LHLD 3000H
+XCHG 
+LHLD 3002H
+MOV A,L
+SUB E
+MOV L,A
+MOV A,D
+SUB H
+MOV H,A
+SHLD 3004H
+
+
+hlt

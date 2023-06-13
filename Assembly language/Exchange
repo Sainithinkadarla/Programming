@@ -1,0 +1,25 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: nop
+
+LXI H,3000H
+MOV B,M ;moving the value from memory location 3000H to B register
+
+LXI H,3001H
+MOV A,M ; Moving the value from memory location 3005H to A register
+
+
+STA 3000H
+
+MOV A,B
+
+STA 3001H
+
+hlt
