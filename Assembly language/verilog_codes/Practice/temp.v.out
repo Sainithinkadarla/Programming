@@ -1,0 +1,148 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000021c1b94a190 .scope module, "add" "add" 2 2;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /OUTPUT 1 "f";
+o0000021c1b94ffa8 .functor BUFZ 1, C4<z>; HiZ drive
+o0000021c1b94ffd8 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000021c1b939f60 .functor AND 1, o0000021c1b94ffa8, o0000021c1b94ffd8, C4<1>, C4<1>;
+v0000021c1b93b670_0 .net "f", 0 0, L_0000021c1b939f60;  1 drivers
+v0000021c1b93b990_0 .net "x", 0 0, o0000021c1b94ffa8;  0 drivers
+v0000021c1b93b710_0 .net "y", 0 0, o0000021c1b94ffd8;  0 drivers
+S_0000021c1b94a320 .scope module, "exorop" "exorop" 2 41;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /OUTPUT 1 "f";
+o0000021c1b9500c8 .functor BUFZ 1, C4<z>; HiZ drive
+o0000021c1b9500f8 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000021c1b944940 .functor XOR 1, o0000021c1b9500c8, o0000021c1b9500f8, C4<0>, C4<0>;
+v0000021c1b93bad0_0 .net "f", 0 0, L_0000021c1b944940;  1 drivers
+v0000021c1b93bb70_0 .net "x", 0 0, o0000021c1b9500c8;  0 drivers
+v0000021c1b93b7b0_0 .net "y", 0 0, o0000021c1b9500f8;  0 drivers
+S_0000021c1b94bd80 .scope module, "nandop" "nandop" 2 25;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /OUTPUT 1 "f";
+o0000021c1b950218 .functor BUFZ 1, C4<z>; HiZ drive
+o0000021c1b950248 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000021c1b944a90 .functor AND 1, o0000021c1b950218, o0000021c1b950248, C4<1>, C4<1>;
+L_0000021c1b944e10 .functor NOT 1, L_0000021c1b944a90, C4<0>, C4<0>, C4<0>;
+v0000021c1b93bcb0_0 .net *"_ivl_0", 0 0, L_0000021c1b944a90;  1 drivers
+v0000021c1b93bc10_0 .net "f", 0 0, L_0000021c1b944e10;  1 drivers
+v0000021c1b93bd50_0 .net "x", 0 0, o0000021c1b950218;  0 drivers
+v0000021c1b93bdf0_0 .net "y", 0 0, o0000021c1b950248;  0 drivers
+S_0000021c1b94bf10 .scope module, "notop" "notop" 2 18;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /OUTPUT 1 "y";
+o0000021c1b950308 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000021c1b944be0 .functor NOT 1, o0000021c1b950308, C4<0>, C4<0>, C4<0>;
+v0000021c1b93b490_0 .net "x", 0 0, o0000021c1b950308;  0 drivers
+v0000021c1b93be90_0 .net "y", 0 0, L_0000021c1b944be0;  1 drivers
+S_0000021c1b94c0a0 .scope module, "orop" "orop" 2 10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /OUTPUT 1 "f";
+o0000021c1b9503f8 .functor BUFZ 1, C4<z>; HiZ drive
+o0000021c1b950428 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000021c1b944fd0 .functor OR 1, o0000021c1b9503f8, o0000021c1b950428, C4<0>, C4<0>;
+v0000021c1b93b210_0 .net "f", 0 0, L_0000021c1b944fd0;  1 drivers
+v0000021c1b93b850_0 .net "x", 0 0, o0000021c1b9503f8;  0 drivers
+v0000021c1b93b030_0 .net "y", 0 0, o0000021c1b950428;  0 drivers
+S_0000021c1b945a50 .scope module, "test" "test" 2 83;
+ .timescale 0 0;
+v0000021c1b93b170_0 .net "tf", 0 0, L_0000021c1b944da0;  1 drivers
+v0000021c1b93b2b0_0 .var "tx", 0 0;
+v0000021c1b93b3f0_0 .var "ty", 0 0;
+S_0000021c1b945d70 .scope module, "func" "norop" 2 87, 2 33 0, S_0000021c1b945a50;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /OUTPUT 1 "f";
+L_0000021c1b944cc0 .functor OR 1, v0000021c1b93b2b0_0, v0000021c1b93b3f0_0, C4<0>, C4<0>;
+L_0000021c1b944da0 .functor NOT 1, L_0000021c1b944cc0, C4<0>, C4<0>, C4<0>;
+v0000021c1b93b350_0 .net *"_ivl_0", 0 0, L_0000021c1b944cc0;  1 drivers
+v0000021c1b93bf30_0 .net "f", 0 0, L_0000021c1b944da0;  alias, 1 drivers
+v0000021c1b93b8f0_0 .net "x", 0 0, v0000021c1b93b2b0_0;  1 drivers
+v0000021c1b93b0d0_0 .net "y", 0 0, v0000021c1b93b3f0_0;  1 drivers
+S_0000021c1b945be0 .scope module, "texorop" "texorop" 2 57;
+ .timescale 0 0;
+v0000021c1b9a1370_0 .net "tf", 0 0, L_0000021c1b944ef0;  1 drivers
+v0000021c1b9a29f0_0 .var "tx", 0 0;
+v0000021c1b9a2450_0 .var "ty", 0 0;
+S_0000021c1ba0da90 .scope module, "func" "exnorop" 2 60, 2 48 0, S_0000021c1b945be0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /OUTPUT 1 "f";
+L_0000021c1b944e80 .functor XOR 1, v0000021c1b9a29f0_0, v0000021c1b9a2450_0, C4<0>, C4<0>;
+L_0000021c1b944ef0 .functor NOT 1, L_0000021c1b944e80, C4<0>, C4<0>, C4<0>;
+v0000021c1b93ba30_0 .net *"_ivl_0", 0 0, L_0000021c1b944e80;  1 drivers
+v0000021c1b93b530_0 .net "f", 0 0, L_0000021c1b944ef0;  alias, 1 drivers
+v0000021c1b93b5d0_0 .net "x", 0 0, v0000021c1b9a29f0_0;  1 drivers
+v0000021c1b9a1d70_0 .net "y", 0 0, v0000021c1b9a2450_0;  1 drivers
+    .scope S_0000021c1b945a50;
+T_0 ;
+    %vpi_call 2 92 "$monitor", v0000021c1b93b2b0_0, v0000021c1b93b3f0_0, "->", v0000021c1b93b170_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b2b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b3f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b2b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b3f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b2b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b3f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b2b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b93b3f0_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0000021c1b945be0;
+T_1 ;
+    %vpi_call 2 64 "$monitor", v0000021c1b9a29f0_0, v0000021c1b9a2450_0, "->", v0000021c1b9a1370_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b9a29f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b9a2450_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b9a29f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000021c1b9a2450_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000021c1b9a29f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021c1b9a2450_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000021c1b9a29f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000021c1b9a2450_0, 0, 1;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "temp.v";

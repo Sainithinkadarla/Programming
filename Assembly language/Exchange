@@ -13,7 +13,7 @@ LXI H,3000H
 MOV B,M ;moving the value from memory location 3000H to B register
 
 LXI H,3001H
-MOV A,M ; Moving the value from memory location 3005H to A register
+MOV A,M ; Moving the value from memory location 3001H to A register
 
 
 STA 3000H

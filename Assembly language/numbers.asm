@@ -1,0 +1,9 @@
+MVI A,00H
+LXI H,0000H
+MVI B,10H
+LOOP1: INX H
+       MOV C,M 
+       ADD C
+       DCR B
+       JNZ LOOP1
+HLT

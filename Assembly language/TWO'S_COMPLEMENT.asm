@@ -9,13 +9,16 @@ jmp start
 ;code
 start: nop
 
+
 LXI H,3000H
-MOV A,M
-INX H
+MVI C,05H
+
 MOV B,M
-SUB B
-INX H
-MOV M,A
+LOOP: ADD B
+INR B
+DCR C
+JNZ LOOP
+STA 3005H
 
 
-hlt2
+hlt
