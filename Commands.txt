@@ -7,4 +7,4 @@ git add . ; git commit -m "test" ; git push
 
 Java Execution command
 
-javac -d .\class_files\ .\Java file name.java ; cd .\class_files\; java MainClassName ; cd ..
+javac -d .\class_files\ .\Java_file_name.java ; cd .\class_files\; java MainClassName ; cd ..

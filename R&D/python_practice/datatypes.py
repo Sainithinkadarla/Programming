@@ -1,3 +1,10 @@
+import basic as b
+
+
+b.mod_fun()
+print(b.x,b.y)
+
+
 #int 
 a= 11232
 
