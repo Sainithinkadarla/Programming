@@ -63,3 +63,9 @@ WHERE
 
 
 SELECT * FROM (SELECT * FROM your_table WHERE ROWNUM <= 5);
+
+
+SELECT e.EMPNO, e.ENAME, e.experience, s.grade
+FROM emp e
+JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal
+WHERE s.grade = 3;

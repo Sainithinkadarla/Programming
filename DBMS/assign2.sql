@@ -170,19 +170,40 @@ select * from emp where experience>6.5;
 select * from emp where HIREDATE>'1-jun-1981';
 
 --50th question
-select * from emp where deptno=10 and job='CLERK';
+select * from emp where DEPTNO=10 and job='CLERK';
 
 --51st question 
 select * from emp where HIREDATE<'1-JAN-1985' and sal>3000;
 
 ---52nd question
-select * 
-
+SELECT emp.EMPNO, emp.ENAME, emp.experience, salgrade.grade FROM emp
+JOIN salgrade ON emp.sal BETWEEN salgrade.losal AND salgrade.hisal
+WHERE salgrade.grade = 3;
 
 
 -----------------------------------------------UPDATE COMMAND------------------------------
 
 -- 1st question
+update emp set DEPTNO = 30 where ename='BLAKE';
+select * from emp where ename='BLAKE';
+
+---2nd question
+update emp set DEPTNO =20 where DEPTNO=10;
+select DEPTNO from emp;
+
+--3rd question
+update DEPT set LOC='DALLAS' where LOC='CHICAGO';
+select LOC from DEPT;
+
+--4th question 
+update emp set sal=(select salgrade.hisal from salgrade where salgrade.grade =2), DEPTNO = (select DEPTNO from emp where ENAME='BLAKE'), MGR= (select EMPNO from emp where ENAME='BLAKE') WHERE ename='ALLEN';
+
+select ename,sal, DEPTNO, MGR from emp where ename='ALLEN';
+
+--5th question
+select * from emp;
+update emp set sal=(sal+(sal*(2/100))), comm = (comm+250), mgr=(select EMPNO from emp where ename='JONES') where job='SALESMAN';
+select * from emp;
 
 drop table emp_and_job;
 
