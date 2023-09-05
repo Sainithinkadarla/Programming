@@ -38,6 +38,17 @@ WHERE
     TABLE_NAME = 'TEAMS';
 
 
+
+
+SELECT *
+FROM emp
+WHERE CHAR_LENGTH(your_column) = 3
+
+
+
+
+
+
 SELECT
     CONSTRAINT_NAME,
     CONSTRAINT_TYPE,
@@ -47,3 +58,8 @@ FROM
     USER_CONSTRAINTS
 WHERE
     TABLE_NAME = 'TEAMS';
+
+
+
+
+SELECT * FROM (SELECT * FROM your_table WHERE ROWNUM <= 5);

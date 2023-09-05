@@ -76,7 +76,11 @@ select EMPNO, ename,sal from emp where job='MANAGER';
 
 -- 20th question
 
-select * from emp where (sal*12)>30000;
+alter table emp add (ann_sal number);
+update emp set ann_sal=(sal*12);
+
+select * from emp where ann_sal>30000;
+
 -- 21th question
 select distinct EMPNO from emp;
 
@@ -105,5 +109,80 @@ select EMPNO, ename, sal from emp where HIREDATE<'1-apr-1981';
 --29th question
 select * from emp where experience>10;
 
+-- 30th question
+select * from emp where job='MANAGER';
+
+-- 31st question
+select * from emp where job='CLERK' and experience>8;
+
+-- 32nd question
+select EMPNO, ename, sal, job from emp where ann_sal<34000 and comm<sal and job='SALESMAN' and DEPTNO=20;
+
+--33rd question
+select * from emp where job='SALESMAN' and comm is not null and comm>0;
+
+-- 34th question
+select * from emp where job='SALESMAN' and DEPTNO=30 and comm>sal;
+
+-- 35th question
+with rec(n) as(select 100 as n from dual union all select n+1 from rec where n<999) select n from rec;
+
+--36th question
+select * from emp fetch first 5 rows only;
+
+--37th question
+select EMPNO, ename, job,sal from emp;
+
+--38th question
+select distinct DEPTNO from emp;
+
+--39th question
+select distinct job, DEPTNO from emp;
+
+--40th question
+select * from emp where ename='MILLER';
+
+--41st question
+select * from DEPT where DEPTNO=10;
+
+--42nd question
+select * from emp where job ='SALESMAN';
+
+--43rd question
+select * from emp where HIREDATE<'1-JAN-1984';
+
+--44th question
+select * from emp where sal>2500;
+
+--45th question
+select * from emp where HIREDATE>='1-APR-1982';
+
+--46th question
+select EMPNO, ename, sal, daily_sal from emp;
+
+--47th question
+select EMPNO,ENAME,sal, experience from emp where job='ANALYST';
+
+--48th question
+select * from emp where experience>6.5;
+
+--49th question
+select * from emp where HIREDATE>'1-jun-1981';
+
+--50th question
+select * from emp where deptno=10 and job='CLERK';
+
+--51st question 
+select * from emp where HIREDATE<'1-JAN-1985' and sal>3000;
+
+---52nd question
+select * 
+
+
+
+-----------------------------------------------UPDATE COMMAND------------------------------
+
+-- 1st question
 
 drop table emp_and_job;
+
