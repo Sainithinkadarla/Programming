@@ -79,42 +79,41 @@ desc student14;
 
 --- 7th question (&, &&, ACCEPT and DEFINE)
 
----define game = 'checkers';
----insert into student14(games,activity) values('&&game','&activities');
----insert into student14(games,activity) values('&&game','&activities');
----accept game prompt 'Enter your favourite game : ';
----insert into student14(games,activity) values('&&game','&activities');
----insert into student14(games,activity) values('&&game','&activities');
----select stdid,lname, games, activity  from student14;
+define game = 'checkers';
+insert into student14(games,activity) values('&&game','&activities');
+insert into student14(games,activity) values('&&game','&activities');
+accept game prompt 'Enter your favourite game : ';
+insert into student14(games,activity) values('&&game','&activities');
+insert into student14(games,activity) values('&&game','&activities');
+select stdid,lname, games, activity  from student14;
 
 
 --- 8th question (UPDATE COMMAND)
---select stdid, fname, lname, doj, fees from student14;
---update student14 set &column=&v where stdid=&for_whom;
---update student14 set &column='&v' where stdid=&for_whom;
---update student14 set &column='&v' where stdid=&for_whom;
---update student14 set &column='&v' where stdid=&for_whom;
---select stdid, fname, lname, doj, fees from student14;
+select stdid, fname, lname, doj, fees from student14;
+update student14 set &column=&v where stdid=&for_whom;
+update student14 set &column='&v' where stdid=&for_whom;
+update student14 set &column='&v' where stdid=&for_whom;
+update student14 set &column='&v' where stdid=&for_whom;
+select stdid, fname, lname, doj, fees from student14;
 
---select prodid, proddesc from prodspec;
---update prodspec set proddesc='&proddesc_to_add' where prodid=&for_prodid;
---update prodspec set prodid=1231 ;
---
---select prodid, proddesc from prodspec;
---
---
---select stdid,fees from student14;
+select prodid, proddesc from prodspec;
+update prodspec set proddesc='&proddesc_to_add' where prodid=&for_prodid;
+update prodspec set prodid=1231 ;
+
+select prodid, proddesc from prodspec;
+
+select stdid,fees from student14;
 
 --- 9th question (add course and address columns )
 alter table student14 add (course varchar(10), address varchar(20));
 desc student14;
 
 -- 10th question (modify )
---desc student14;
---alter table student14 rename column stdid to stdnumber;
---alter table student14 rename column lname to lastname;
---alter table student14 modify lastname varchar(30);
---desc student14;
+desc student14;
+alter table student14 rename column stdid to stdnumber;
+alter table student14 rename column lname to lastname;
+alter table student14 modify lastname varchar(30);
+desc student14;
 
 -- 11th question
 create table labspecification (eqid number, eqname varchar(20));
@@ -127,8 +126,8 @@ select tname from tab where tname='LABSPECIFICATION';
 -- 12th question
 
 delete from student14 where fname='sai';
-delete from student14 where lname='reddy';
-delete from student14 where lname='chary';
+delete from student14 where lastname='reddy';
+delete from student14 where lastname='chary';
 
 -- 13th question
 --desc student14;
@@ -177,7 +176,7 @@ desc student14;
 desc new_student
 
 -- required columns
-create table with_selected_columns as select stdid,fname,lname from student14;
+create table with_selected_columns as select stdnumber,fname,lastname from student14;
 select * from with_selected_columns;
 
 -- adding new data
@@ -186,7 +185,7 @@ update student14 set additional_fees=10000;
 desc student14;
 --- invented columns
 select * from student14;
-create table new_fee_student as select stdid,fname,lname, additional_fees+fees as new_fees from student14; 
+create table new_fee_student as select stdnumber,fname,lastname, additional_fees+fees as new_fees from student14; 
 select * from new_fee_student;
 desc new_fee_student;
 
@@ -197,7 +196,7 @@ select * from copy_student;
 desc copy_student;
 
 --- with diff column names
-create table diff_student as select stdid as sid, fname as firstname, lname as lastname from student14;
+create table diff_student as select stdnumber as sid, fname as firstname, lastname as lname from student14;
 desc diff_student
 -- 17th question
 insert into labdata values(1111,'test equipment');
@@ -224,6 +223,119 @@ select * from labdata;
 rollback to savepoint three_temps;
 select * from labdata;
 
+
+-- 18th question
+
+-- 18a) not null constriant
+create table samplenn01 (sampdate date, sampleid number not null, sampname varchar(20) not null);
+
+insert into samplenn01 values(SYSDATE, 1, 'john');
+insert into samplenn01 values(SYSDATE);
+select * from samplenn01;
+
+
+--- 18b) unique constraint
+create table sampleunq1 (sampdate date, sampleid number unique, sampname varchar(20) unique );
+
+insert into sampleunq1 values (SYSDATE, 1, 'john');
+insert into sampleunq1 values (SYSDATE, 1, 'john');
+insert into sampleunq1 values (SYSDATE, 2, 'sam');
+insert into sampleunq1 values (SYSDATE, 2, 'sam');
+select * from sampleunq1;
+
+create table sampleunq2 (sampdate date,sampleid number, samplename varchar(20),  constraint unc unique(sampleid, samplename));
+
+insert into sampleunq2 values (SYSDATE, 1, 'john');
+insert into sampleunq2 values (SYSDATE, 1, 'john');
+insert into sampleunq2 values (SYSDATE, 2, 'sam');
+insert into sampleunq2 values (SYSDATE, 2, 'sam');
+
+select * from sampleunq2;
+
+-- 18c) primary key
+
+create table players(playerno number primary key, name varchar(20), initials varchar(20), birth_date date, sex varchar(2), joined date, street varchar(20), houseno varchar(20), postcode number, town varchar(20), phoneno number(10));
+
+create table teams(teamno number primary key, playerno number, division number);
+
+create table matches(matchno number primary key, teamno number, playerno number, won smallint, lost smallint);
+
+create table penalties(paymenntno number primary key, playerno number, paymetn_date date, amount number(7,2));
+
+create table commitemem(playerno number, begin_date date, end_date date, position number, constraint pk primary key(playerno, begin_date));
+
+-- 18c) alternate keys
+-- table level constraint
+alter table teams add constraint ak unique(playerno);  
+
+alter table teams drop column playerno;
+alter table teams add (playerno number);
+
+-- column level constraint
+alter table teams modify playerno unique; 
+
+-- 18d) foreign keys
+-- 18d1)self referencing
+alter table matches add constraint fk foreign key(teamno) references matches(matchno); 
+
+-- 18d2) binary referencing 
+prompt ------Binary referencing-----------;
+create table pc(pcid number primary key, paymenntno number, playerno number, begin_date date, foreign key(paymenntno) references penalties(paymenntno), foreign key(playerno, begin_date) references commitemem(playerno, begin_date));
+prompt -----------------------------------;
+
+-- 18e) check constraint
+
+create table emp(ename varchar(20), eid number, constraint chc check(ename = UPPER(ename)));
+insert into emp values('HULK',1);
+insert into emp values('hulk',1);
+
+-- 19) Maintenance
+
+-- 19a) add constraints
+alter table teams add constraint ak unique(division);
+
+-- 19b) view column associated constraints from data dictionary tables
+SELECT
+    TABLE_NAME,
+    COLUMN_NAME,
+    CONSTRAINT_NAME,
+    POSITION
+FROM
+    USER_CONS_COLUMNS
+WHERE
+    TABLE_NAME = 'COMMITEMEM' AND
+    COLUMN_NAME = 'BEGIN_DATE';
+
+-- 19c) enabling and disabling constraints
+alter table teams disable constraint ak;
+
+alter table teams enable constraint ak;
+
+-- 19d) view constraints in data dictionary table
+SELECT
+    CONSTRAINT_NAME,
+    CONSTRAINT_TYPE,
+    TABLE_NAME,
+    SEARCH_CONDITION
+FROM
+    USER_CONSTRAINTS
+WHERE
+    TABLE_NAME = 'TEAMS';
+
+-- 19e) drop constraints
+alter table teams drop constraint ak;
+
+
+drop table emp;
+drop table pc;
+drop table commitemem;
+drop table penalties;
+drop table matches;
+drop table teams;
+drop table players;
+drop table sampleunq2;
+drop table sampleunq1;
+drop table samplenn01;
 drop table new_student;
 drop table with_selected_columns;
 drop table new_fee_student;
