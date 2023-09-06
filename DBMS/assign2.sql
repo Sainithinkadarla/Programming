@@ -205,5 +205,44 @@ select * from emp;
 update emp set sal=(sal+(sal*(2/100))), comm = (comm+250), mgr=(select EMPNO from emp where ename='JONES') where job='SALESMAN';
 select * from emp;
 
+--- 6th question
+update emp set sal = (select sal from (select * from emp join salgrade on sal between salgrade.losal and hisal where grade=3) where experience = (select max(experience) from (select * from emp join salgrade on sal between salgrade.losal and hisal where grade=3))) where job ='CLERK' and experience = (select max(experience) from emp);
+
+select * from emp;
+
+--- 7th question
+
+--- 8th question
+--- 9th question
+--- 10th question
+--- 11th question
+--- 12th question
+--- 13th question
+--- 14th question
+--- 15th question
+--- 16th question
+--- 18th question
+--- 19th question
+--- 20th question
+--- 21th question
+--- 22th question
+--- 23th question
+--- 24th question
+--- 25th question
+--- 26th question
+--- 27th question
+--- 28th question
+--- 29th question
+--- 30th question
+--- 31th question
+--- 30th question
+--- 30th question
+--- 30th question
+--- 30th question
+--- 30th question
+--- 30th question
+--- 30th question
+
+
 drop table emp_and_job;
 

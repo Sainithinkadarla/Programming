@@ -69,3 +69,52 @@ SELECT e.EMPNO, e.ENAME, e.experience, s.grade
 FROM emp e
 JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal
 WHERE s.grade = 3;
+
+
+
+select emp.experience,emp.sal, salgrade.grade from emp JOIN SALGRADE on emp.sal BETWEEN SALGRADE.losal and salgrade.hisal where grade=3;
+
+
+
+
+select emp.sal from emp JOIN SALGRADE on emp.sal BETWEEN SALGRADE.losal and salgrade.hisal where grade=3 and emp.experience=(select MAX(emp.experience) from emp);
+
+
+
+--- 6th question
+
+alter table emp add (grade int);
+--update emp set grade = 
+update emp set grade=(select grade from (select * from emp join salgrade on emp.sal between salgrade.losal and salgrade.hisal));
+--update emp set sal=(select emp.sal from emp JOIN SALGRADE on emp.sal BETWEEN SALGRADE.losal and salgrade.hisal where grade=3) where emp.experience=(select MAX(emp.experience) from emp);
+
+select * from emp;
+---select sal, experience,ename from emp where experience= (select MAX(experience) from emp) and where job='CLERK';
+
+
+
+
+
+
+
+
+
+
+select sal from (select * from emp join salgrade on sal between salgrade.losal and hisal where grade=3) where experience = (select max(experience) from (select * from emp join salgrade on sal between salgrade.losal and hisal where grade=3));
+
+
+
+UPDATE EMP senior_clerk SET senior_clerk.SAL = (SELECT MAX(e.SAL) FROM EMP e JOIN SALGRADE s ON e.SAL BETWEEN s.LOSAL AND s.HISAL
+    WHERE e.JOB = 'CLERK'
+      AND e.HIREDATE = (
+        SELECT MAX(HIREDATE)
+        FROM EMP
+        WHERE JOB = 'CLERK'
+      )
+)
+WHERE senior_clerk.JOB = 'CLERK';
+
+
+
+
+update emp set sal= (select max(sal) from emp where grade=3 ), experience = (select max(experience) from emp) where job= 'CLERK';
