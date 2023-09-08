@@ -118,3 +118,84 @@ WHERE senior_clerk.JOB = 'CLERK';
 
 
 update emp set sal= (select max(sal) from emp where grade=3 ), experience = (select max(experience) from emp) where job= 'CLERK';
+
+
+
+
+-- 6th question refernce
+
+UPDATE tableDestination  
+SET tableDestination.col = value  
+WHERE EXISTS (  
+SELECT col2.value  
+FROM  tblSource  
+WHERE tblSource.join_col = tblDestination. Join_col  
+AND  tblSource.Constraint = value)  
+
+
+You can also try this one -
+
+UPDATE   
+Table   
+SET  
+Table.column1 = othertable.column 1,  
+Table.column2 = othertable.column 2  
+FROM   
+Table  
+INNER JOIN  
+Other_table  
+ON  
+Table.id = other_table.id  
+
+--7th question reference with CASE statements
+UPDATE Employee
+SET Middle_Name 
+= CASE Employee_ID
+WHEN 7369 THEN 'A'
+WHEN 7499 THEN 'B'
+ELSE Middle_Name
+END
+WHERE Employee_ID IN(7369,7499);
+
+-- bard for 7th question
+UPDATE Employee
+SET Middle_Name = CASE Employee_ID
+WHEN 7369 THEN 'A'
+WHEN 7499 THEN 'B'
+ELSE Middle_Name
+END,
+Salary = CASE Employee_ID
+WHEN 7369 THEN 3000
+WHEN 7499 THEN 4000
+ELSE Salary
+END
+WHERE Employee_ID IN(7369,7499);
+
+
+--- 11th question rough work
+
+select * from emp e join salgrade s on sal between s.losal and s.hisal where s.grade=2
+
+update emp set grade= (select s.grade from emp e join salgrade s on sal between s.losal and s.hisal);
+
+UPDATE target_table AS t SET t.target_column = s.source_column FROM source_table AS s WHERE t.condition_column = s.condition_column;
+
+update emp e set e.grade = (select s.grade from (select s.grade from emp e join salgrade s on sal between s.losal and s.hisal)) where e.sal = ;
+
+
+
+
+
+
+--- 19th question
+select * from emp e join salgrade s on sal between s.losal and s.hisal where grade=2;
+update emp set sal = sal +300 where EXISTS (select * from emp e join salgrade s on sal between s.losal and s.hisal where grade=2);
+
+
+
+
+create table emp_grade as select * from emp e join salgrade s on sal between s.losal and s.hisal;
+
+
+
+Write update statement to increment the Sal of grade 2 by 1.2%.
