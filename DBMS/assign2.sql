@@ -12,7 +12,8 @@
 set wrap off;
 set lines 50;
 set linesize 150;
------------------------------------------------INSERT COMMAND------------------------------
+-----------------------------------------------SELECT COMMAND------------------------------
+
 desc emp;
 -- 1st question
 select * from emp;
@@ -258,12 +259,12 @@ select * from emp where grade=2;
 
 --- 12th question
 select emp.ename, emp.sal, emp.grade, emp.experience, emp.deptno, dept.deptno, dept.loc from emp join dept on emp.deptno=dept.deptno ;
-update emp set sal= ((select sal from emp where ename='ALLEN') + 500) from emp join DEPT on emp.deptno=dept.deptno where (grade in (2,3)) and (dept.loc in ('NEW YORK','DALLAS')) and (experience>7 and LENGTH(ename)!=4);
 
+update emp set sal= ((select sal from emp where ename='ALLEN') + 500)  where (grade in (2,3)) and (DEPTNO in (select DEPTNO from dept where loc in ('NEW YORK','DALLAS'))) and (experience>7) and LENGTH(ename)!=4;
 
 select emp.ename, emp.sal, emp.grade, emp.experience, emp.deptno, dept.deptno, dept.loc from emp join dept on emp.deptno=dept.deptno where grade in (2,3) and dept.loc in ('NEW YORK','DALLAS') and experience>7 and LENGTH(ename)!=4;
 
-/*
+
 --- 13th question
 update emp set sal= sal*1.2 where job='CLERK';
 select * from emp;
@@ -299,7 +300,6 @@ update emp set sal = sal+300 where grade=2;
 select * from emp where grade=2;
 
 --- 20th question
---update emp sal = where ename='ALLEN', job='MANAGER' where ename='KING';
 select * from emp;
 update emp set sal = case ENAME when 'ALLEN' then (select max(sal) from emp WHERE job ='CLERK' and grade in (2,3)) else sal end, job = case ENAME when 'KING' then 'MANAGER' else job end;
 select * from emp;
@@ -337,9 +337,238 @@ select * from emp where grade=2;
 
 
 --- 27th question
-update emp set sal = (select max(sal) FROM (select *  from emp join dept on emp.deptno = dept.deptno where loc='NEW YORK' or loc='CHICAGO') WHERE job='CLERK') where ename='ALLEN';
+select * from emp;
 
-drop table emp_and_job;
+update emp set sal = (select max(sal) from emp where job='CLERK' and deptno in (select deptno from dept where loc in ('CHICAGO','NEW YORK'))) where EXISTS (select 1 from emp where job='CLERK' and deptno in (select deptno from dept where loc in ('CHICAGO','NEW YORK'))) AND ENAME='ALLEN' ;
 
-*/
+--insert into emp values (7934, 'MILLER', 'CLERK', 7782, TO_DATE('23-JAN-1982', 'DD-MON-YYYY'), 1300, NULL, 10);
+
+select * from emp;
+
+--drop table emp_and_job;
+
+
 -----------------------------------------------DELETE COMMAND------------------------------
+
+--- 1st question
+select * from emp where job='SALESMAN';
+
+DELETE from emp where job='SALESMAN';
+
+select * from emp where job='SALESMAN';
+rollback;
+select * from emp where job='SALESMAN';
+
+--- 2nd question
+select * from emp;
+delete from emp where HIREDATE>'1-JUN-1981' and mgr = (select empno from emp where ename = 'KING') and grade = (select grade from salgrade where (3500 between losal and hisal) and (4000 between losal and hisal));
+
+select * from emp;
+rollback;
+
+--- 3rd question
+select * from emp;
+
+delete from emp where grade =1;
+
+select * from emp;
+rollback;
+
+--- 4th question
+select * from emp;
+delete from emp where job='SALESMAN' and deptno = (select deptno from dept where DNAME='SALES');
+select * from emp;
+
+--- 5th question
+select * from emp;
+
+delete from emp where deptno=30 and HIREDATE = (select MAX(HIREDATE) from emp where deptno=30);
+
+select * from emp;
+rollback;
+
+--- 6th question
+select * from emp;
+
+delete from emp where deptno in (select deptno from emp group by deptno having count(*) < 3);
+
+select * from emp;
+rollback;
+
+--- 7th question
+select * from emp;
+delete from emp where HIREDATE>SYSDATE-10*365.25;
+
+select * from emp;
+
+--- 8th question
+select * from emp;
+
+delete from emp where deptno = (select deptno from dept where loc='BOSTON');
+
+select * from emp;
+rollback;
+
+--- 9th question
+delete from emp where HIREDATE between '1-JAN-1981' AND '31-JAN-1981';
+
+--- 10th question
+select * from emp;
+
+DELETE FROM emp where mgr=(select empno from emp where ename='BLAKE') and experience>7 ;
+
+select * from emp;
+rollback;
+
+--- 11th question
+select * from emp;
+
+delete from emp where ename='MILLER';
+
+select * from emp;
+rollback;
+
+--- 12th question
+select * from emp;
+
+delete from emp where mgr = (select empno from emp where ename='BLAKE');
+
+select * from emp;
+rollback;
+
+--- 13th question
+select * from emp;
+
+delete from emp where HIREDATE = (select min(HIREDATE) from emp where mgr = (select empno from emp where ename='KING'));
+
+--- 14th question
+select * from emp;
+
+delete from emp where grade in (1,2);
+
+select * from emp;
+rollback;
+
+--- 15th question
+select * from emp;
+
+delete from emp where (grade in (1,2))  and (deptno IN (select DEPTNO from dept where loc = 'CHICAGO')) and (HIREDATE between '1-JAN-1981' AND '30-JUN-1981');
+
+select * from emp;
+
+--- 16th question
+select * from emp;
+
+delete from emp where mgr=7654;
+
+select * from emp;
+rollback;
+
+--- 17th question
+select * from emp;
+
+delete from emp where experience<4 and job like '%MAN';
+
+select * from emp;
+rollback;
+
+--- 18th question
+select * from emp;
+
+delete from emp where DEPTNO = (select deptno from dept where dname ='SALES') and (sal BETWEEN 1500 and 3000);
+
+select * from emp;
+rollback;
+
+--- 19th question
+select * from emp;
+
+delete from emp where (grade in (2,3)) and (DEPTNO = (select deptno from dept where dname ='SALES')) and (HIREDATE>'1-JAN-1983') and (deptno = (select deptno from dept where loc='BOSTON'));
+
+select * from emp;
+
+--- 20th question
+select * from emp;
+
+delete from emp where ename= 'JAMES';
+
+select * from emp;
+rollback;
+
+--- 21th question
+select * from emp;
+
+delete from emp where DEPTNO in (10,20);
+
+select * from emp;
+
+--- 22th question
+select * from emp;
+
+delete from emp where (experience<7) and (LENGTH(ENAME)!=4) and (deptno = (select deptno from dept where loc = 'CHICAGO'));
+
+select * from emp;
+
+
+--- 23th question
+select * from emp;
+
+delete from emp where sal in (select min(sal) from emp group by deptno);
+
+select * from emp;
+rollback;
+--- 24th question
+select * from emp;
+
+delete from emp where experience in (select max(experience) from emp group by mgr HAVING mgr is NOT NULL);
+
+select * from emp;
+rollback;
+
+--- 25th question
+select * from emp;
+
+delete from emp where deptno = 30 and deptno in (select deptno from dept where loc='DALLAS');
+
+select * from emp;
+rollback;
+
+--- 26th question
+select * from dept;
+
+delete from dept where deptno not in (select deptno from emp group by deptno);
+
+select * from dept;
+rollback;
+
+--- 27th question
+select * from emp;
+
+insert into emp values (7934, 'MILLER', 'CLERK', 7782, TO_DATE('23-JAN-1982', 'DD-MON-YYYY'), 1300, NULL, 10,NULL,NULL,NULL,NULL);
+
+select * from emp where ename='MILLER';
+
+delete from emp e1 where exists ( select 1 from emp e2 where e1.empno = e2.empno and e1.ename = e2.ename and e1.rowid > e2.rowid);
+
+select * from emp;
+
+--- 28th question
+select * from emp;
+
+delete from emp where experience<4;
+
+select * from emp;
+
+--- 29th question
+select * from emp;
+
+delete from emp where (job='SALESMAN') and (comm<250) and (comm is NULL);
+
+select * from emp;
+
+--- 30th question
+select * from emp;
+
+delete from emp where grade=1 and job != 'CLERK';
+
+select * from emp;

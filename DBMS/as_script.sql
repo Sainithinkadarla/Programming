@@ -4,7 +4,7 @@ set wrap off;
 
 
 
-
+--- 1st question
 create table student14(stdid number, fname varchar(20), lname varchar(20), dob varchar(14), doj varchar(14), fees float, gender varchar(2));
 select * from student14;
 
@@ -31,6 +31,7 @@ set linesize 50;
 
 
 
+--- 2nd question
 create table prodspec(prodid number, prodphoto blob, prodgraphic bfile, proddesc long);
 desc prodspec;
 
@@ -344,9 +345,3 @@ drop table diff_student;
 drop table labdata;
 drop table student14;
 drop table prodspec;
-
-
-
----select stdid,lname, games, activity  from student14;
-
-

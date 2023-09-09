@@ -199,3 +199,10 @@ create table emp_grade as select * from emp e join salgrade s on sal between s.l
 
 
 Write update statement to increment the Sal of grade 2 by 1.2%.
+
+
+
+DELETE FROM EMP e1 WHERE EXISTS ( SELECT 1 FROM EMP e2 WHERE e1.EMPNO = e2.EMPNO AND e1.ENAME = e2.ENAME AND e1.ROWID > e2.ROWID);
+
+
+select * from emp e1 where exists (SELECT 1 FROM EMP e2 WHERE e1.EMPNO = e2.EMPNO AND e1.ENAME = e2.ENAME AND e1.ROWID > e2.ROWID);
