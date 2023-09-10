@@ -14,16 +14,6 @@ desc student14;
 
 set line 500;
 
-insert into student14 values(101, 'Raghavendra', 'swamy', '9-12-232', '18-03-2304',234234.23,'M');
-select * from student14;
-insert into student14 values(102, 'rama', 'raju', '11-04-2300', '17-03-2304',234234.63,'F');
-select * from student14;
-insert into student14 values(103, 'mahatma', 'gandhi', '16-06-2300', '12-03-2304',234214.43,'M');
-select * from student14;
-insert into student14 values(104, 'sai', 'nithin', '14-02-2300', '19-03-2304',234274.23,'F');
-select * from student14;
-insert into student14 values(105, 'sai', 'mukesh', '14-02-2321', '10-03-2304',234294.23,'M');
-select * from student14;
  
 set wrap off;
 set lines 100;
@@ -40,6 +30,19 @@ set lines 80;
 set linesize 100;
 set wrap off;
 
+--- 3rd question
+
+insert into student14 values(101, 'Raghavendra', 'swamy', '9-12-232', '18-03-2304',234234.23,'M');
+select * from student14;
+insert into student14 values(102, 'rama', 'raju', '11-04-2300', '17-03-2304',234234.63,'F');
+select * from student14;
+insert into student14 values(103, 'mahatma', 'gandhi', '16-06-2300', '12-03-2304',234214.43,'M');
+select * from student14;
+insert into student14 values(104, 'sai', 'nithin', '14-02-2300', '19-03-2304',234274.23,'F');
+select * from student14;
+insert into student14 values(105, 'sai', 'mukesh', '14-02-2321', '10-03-2304',234294.23,'M');
+select * from student14;
+
 insert into prodspec values(1001,NULL ,NULL ,'Folding Chair');
 select * from prodspec;
 insert into prodspec values(1002,NULL ,NULL ,'Dressing table');
@@ -51,6 +54,8 @@ select * from prodspec;
 insert into prodspec values(1005,NULL ,NULL ,'Portable Chair');
 select * from prodspec;
 
+--- 4th question
+
 insert into student14(stdid,lname, dob, doj, fees) values(1001,'reddy','12-04-2004','12-04-2004',234234.23);
 insert into student14(stdid,lname, dob, doj, fees) values(1001,'sai','12-04-2004','12-04-2004',234234.23);
 insert into student14(stdid,lname, dob, doj, fees) values(1001,'chary','12-04-2004','12-04-2004',234234.23);
@@ -61,6 +66,10 @@ insert into prodspec(prodid, proddesc) values(1006,'Bed');
 insert into prodspec(prodid, proddesc) values(1007,'King size bed');
 insert into prodspec(prodid, proddesc) values(1008,'Hospital bed');
 select * from prodspec;
+
+--- 5th question is done previously inserted implicit and explicit NULL values
+
+--- 6th question 
 
 alter table student14 add (insertby varchar(20));
 
