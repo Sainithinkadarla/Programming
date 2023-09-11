@@ -258,12 +258,30 @@ select * from sampleunq1;
 
 create table sampleunq2 (sampdate date,sampleid number, samplename varchar(20),  constraint unc unique(sampleid, samplename));
 
+
 insert into sampleunq2 values (SYSDATE, 1, 'john');
 insert into sampleunq2 values (SYSDATE, 1, 'john');
 insert into sampleunq2 values (SYSDATE, 2, 'sam');
 insert into sampleunq2 values (SYSDATE, 2, 'sam');
 
 select * from sampleunq2;
+
+
+create table sampleunq3(sampdate date, samplename varchar(20) unique, sampid number unique);
+
+
+insert into sampleunq3 values (SYSDATE, 1, 'john');
+insert into sampleunq3 values (SYSDATE, 1, 'john');
+insert into sampleunq3 values (SYSDATE, 2, 'sam');
+insert into sampleunq3 values (SYSDATE, 2, 'sam');
+
+create table sampleunq4(sampdate date, sampname varchar(20), sampid number, constraint unk unique(sampname,sampid));
+
+
+insert into sampleunq4 values (SYSDATE, 1, 'john');
+insert into sampleunq4 values (SYSDATE, 1, 'john');
+insert into sampleunq4 values (SYSDATE, 2, 'sam');
+insert into sampleunq4 values (SYSDATE, 2, 'sam');
 
 -- 18c) primary key
 
