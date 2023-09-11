@@ -245,7 +245,7 @@ create table samplenn01 (sampdate date, sampleid number not null, sampname varch
 insert into samplenn01 values(SYSDATE, 1, 'john');
 insert into samplenn01 values(SYSDATE);
 select * from samplenn01;
-
+create table samplenn2 (sampdate date, sampid number, sampname varchar(20), constraint nnk NOT NULL (sampid, sampname));
 
 --- 18b) unique constraint
 create table sampleunq1 (sampdate date, sampleid number unique, sampname varchar(20) unique );
