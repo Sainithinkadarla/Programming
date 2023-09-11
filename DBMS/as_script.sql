@@ -140,10 +140,10 @@ delete from student14 where lastname='reddy';
 delete from student14 where lastname='chary';
 
 -- 13th question
---desc student14;
---alter table student14 drop column course;
---alter table student14 drop column address;
---desc student14;
+desc student14;
+alter table student14 drop column course;
+alter table student14 drop column address;
+desc student14;
 
 insert into labdata values(101,'computer');
 insert into labdata values(102,'mouse');
