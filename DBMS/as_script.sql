@@ -179,26 +179,6 @@ set wrap off;
 
 
 -- 16th question (Fly tables)
--- only stucture
-create table new_student as select * from student14 where 1=0;
-select * from new_student;
-desc student14;
-desc new_student
-
--- required columns
-create table with_selected_columns as select stdnumber,fname,lastname from student14;
-select * from with_selected_columns;
-
--- adding new data
-alter table student14 add (additional_fees number);
-update student14 set additional_fees=10000;
-desc student14;
---- invented columns
-select * from student14;
-create table new_fee_student as select stdnumber,fname,lastname, additional_fees+fees as new_fees from student14; 
-select * from new_fee_student;
-desc new_fee_student;
-
 -- exact copy
 create table copy_student as select * from student14;
 select * from student14;
@@ -208,6 +188,29 @@ desc copy_student;
 --- with diff column names
 create table diff_student as select stdnumber as sid, fname as firstname, lastname as lname from student14;
 desc diff_student
+
+
+-- required columns
+create table with_selected_columns as select stdnumber,fname,lastname from student14;
+select * from with_selected_columns;
+
+-- adding new data
+alter table student14 add (additional_fees number);
+update student14 set additional_fees=10000;
+desc student14;
+
+--- invented columns
+select * from student14;
+create table new_fee_student as select stdnumber,fname,lastname, additional_fees+fees as new_fees from student14; 
+select * from new_fee_student;
+desc new_fee_student;
+
+-- only stucture
+create table new_student as select * from student14 where 1=0;
+select * from new_student;
+desc student14;
+desc new_student
+
 -- 17th question
 insert into labdata values(1111,'test equipment');
 insert into labdata values(1111,'test equipment');
