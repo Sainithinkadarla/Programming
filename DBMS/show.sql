@@ -46,26 +46,6 @@ select * from test3;
 commit;
 
 select * from test3;
-
--- ON ROLLBACK
-create GLOBAL TEMPORARY TABLE temp1 (id number, name varchar(20)) on rollback PRESERVE ROWS;
-
-insert into temp1 values (11, 'mark');
-select * from temp1;
-rollback;
-insert into temp1 values (12, 'stephen');
-
-select * from temp1;
-
-create GLOBAL TEMPORARY TABLE temp2 (id number, name varchar(20)) ON COMMIT PRESERVE ROWS ON ROLLBACK DELETE ROWS;
-
-insert into temp1 values (11, 'Grant');
-select * from temp1;
-rollback;
-insert into temp1 values (12, 'aris');
-
-select * from temp1;
-
 -- undefine command
 
 define jerry = 'Jerry variable';
@@ -109,8 +89,6 @@ select * from student;
 
 drop table student;
 drop table school;
-drop table temp1;
-drop table temp2;
 drop table test1;
 drop table test2;
 drop table test3;
