@@ -1,3 +1,19 @@
+conn system/9959324162;
+drop table student;
+drop table school;
+drop table test1;
+drop table test3;
+drop table test;
+drop table test2;
+
+alter session set "_oracle_script"=true;
+drop user sai;
+drop user shiva;
+drop user kumar;
+drop role schl_student;
+drop role schl_admin;
+
+
 
 -- default constraint
 create table test(id number, city varchar(20) default 'Hyderabad');
@@ -72,14 +88,14 @@ insert into student values(7, 'CHandana', 102);
 select * from student;
 
 
-create table school (schl_id number, schl_name varchar(30), constraint schl_pk primary key(schl_id));
+create table school (schl_id number, schl_name varchar(30), loc varchar(20), constraint schl_pk primary key(schl_id));
 
-insert into school values (101,'Shine');
-insert into school values (102,'Cambridge');
-insert into school values (103,'geetha');
+insert into school values (101,'Shine','Hyderabad');
+insert into school values (102,'Cambridge','Warangal');
+insert into school values (103,'geetha','Mumbai');
 
 select * from school;
-
+prompt ---------- on delete set null ----------;
 alter table student add constraint student_fk foreign key(schl_id) references school(schl_id) on delete set null;
 
 delete from school where schl_name='geetha';
@@ -87,9 +103,81 @@ delete from school where schl_name='geetha';
 select * from school;
 select * from student;
 
-drop table student;
-drop table school;
-drop table test1;
-drop table test2;
-drop table test3;
-drop table test;
+alter table student drop constraint student_fk;
+prompt ---------- on delete cascade ----------;
+alter table student add constraint student_fk foreign key(schl_id) references school(schl_id) on delete cascade;
+
+delete from school where schl_name = 'Cambridge';
+
+select * from school;
+select * from student;
+
+-- unused keyowrd
+
+alter table school set unused(loc);
+
+select * from school;
+
+
+prompt ---------- invisible keyword ----------
+
+alter table student add (address varchar(20));
+
+update student set address = 'Hyderabad';
+select * from student;
+
+alter table student modify (address INVISIBLE);
+select * from student;
+
+alter table student modify (address VISIBLE);
+select * from student;
+
+alter session set "_oracle_script"=true;
+
+
+
+prompt ---------- creating user ----------;
+create user sai identified by sai1234;
+create user shiva identified by shiva1234;
+create user kumar identified by kumar1234;
+
+grant connect, resource to sai,shiva,kumar;
+
+select username from dba_users;
+
+
+prompt ---------- creating role ----------;
+create role schl_admin;
+create role schl_student;
+
+prompt ---------- Assigning roles to user ----------;
+
+grant schl_admin to kumar;
+grant schl_student to sai, shiva; 
+
+
+
+prompt ---------- granting select to schl_student role ----------;
+
+grant select on student to schl_student;
+show user;
+
+conn sai/sai1234;
+show user;
+
+select * from system.student;
+insert into system.student(id,name, schl_id) values (1, 'Sai', 101);
+
+conn system/9959324162;
+show user;
+
+alter session set "_oracle_script"= true;
+
+revoke select on student from sai;
+
+conn sai/sai1234;
+show user;
+select * from system.student;
+
+
+
