@@ -1,4 +1,4 @@
-conn system/9959324162;
+conn system/ora1234;
 drop table student;
 drop table school;
 drop table test1;
@@ -168,7 +168,7 @@ show user;
 select * from system.student;
 insert into system.student(id,name, schl_id) values (1, 'Sai', 101);
 
-conn system/9959324162;
+conn system/ora1234;
 show user;
 
 alter session set "_oracle_script"= true;
