@@ -132,11 +132,12 @@ select * from student;
 alter table student modify (address VISIBLE);
 select * from student;
 
-alter session set "_oracle_script"=true;
 
 
 
 prompt ---------- creating user ----------;
+alter session set "_oracle_script"=true;
+
 create user sai identified by sai1234;
 create user shiva identified by shiva1234;
 create user kumar identified by kumar1234;
@@ -157,7 +158,7 @@ grant schl_student to sai, shiva;
 
 
 
-prompt ---------- granting select to schl_student role ----------;
+prompt ---------- granting select privileges to schl_student role ----------;
 
 grant select on student to schl_student;
 show user;
@@ -173,7 +174,7 @@ show user;
 
 alter session set "_oracle_script"= true;
 
-revoke select on student from sai;
+revoke select on student from sai;      
 
 conn sai/sai1234;
 show user;
