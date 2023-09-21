@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links from w3</title>
+    <link rel="icon" type="image/x-icon" href="./icons8-phone-16.png">
+    <style>
+        a:link {
+          color: green;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:visited {
+          color: pink;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:hover {
+          color: red;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        
+        a:active {
+          color: yellow;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        </style>
+</head>
+<body>
+    <a href="index.html">Click here to return home</a>
+
+    <h3>Working with target attribute</h3>
+    <a href="index.html" target="_self">self which default one</a><br>
+    <a href="index.html" target="_blank">blank</a><br>
+    <a href="index.html" target="_parent">parent</a><br>
+    <a href="index.html" target="_top">top</a><br>
+
+    <h3>Using an image as link</h3>
+    <a href="index.html" target="_blank"><img src="../yt_vid/html/pics/download.png" alt="this is an link to home" width="40%"></a>
+
+    <h3>Link to an email address</h3>
+    <a href="mailto:sainithin@mailinator.com">Click here  to mail</a>
+
+    <h3> Button for an link</h3>
+
+    <button onclick = "document.location='index.html'">Home</button>
+
+    <h3>Link tiles</h3>
+    <a href="internalcss.html" title="To internal CSS page"> Internal CSS</a>
+
+    <h3>Creating Bookmarks</h3>
+    <ol>
+        <li>Create id's for the elements to be bookmarked</li>
+        <li>At href in anchor add id with '#' prefix</li>
+    </ol>
+    for eg: 
+    <blockquote>href = #id</blockquote>
+    <h3>Image floating</h3>
+
+</body>
+</html>
