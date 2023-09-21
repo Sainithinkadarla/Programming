@@ -29,9 +29,6 @@ prompt ------------- Checking privileges from data dictionary tables -----------
 select  grantor, table_name from user_tab_privs_made where table_name ='STUDENT';
 select  grantor, table_name from user_tab_privs_recd where table_name ='STUDENT';
 
-prompt ------------- Granting select on student to bot -------------;
-grant select on student to bot;
-
 prompt ------------- Creating a role who can select and update -------------;
 create role upd_role;
 grant update on student to upd_role;
