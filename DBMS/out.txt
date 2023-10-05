@@ -1,202 +1,527 @@
-SQL> select * from tab;
-rows will be truncated
 
-rows will be truncated
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                 
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                 
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                 
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                 
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                 
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                 
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                 
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                 
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                 
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000                    20                                                                 
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                 
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                 
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100                    20                                                                 
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                 
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                 
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                 
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                 
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                 
+
+14 rows selected.
 
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGMNR_SESSION_EVOLVE$                                                                              
-LOGMNR_GLOBAL$                                                                                      
-LOGMNR_GT_TAB_INCLUDE$                                                                              
-LOGMNR_GT_USER_INCLUDE$                                                                             
-LOGMNR_GT_XID_INCLUDE$                                                                              
-LOGMNR_PDB_INFO$                                                                                    
-LOGMNR_DID$                                                                                         
-LOGMNR_UID$                                                                                         
-LOGMNRGGC_GTLO                                                                                      
-LOGMNRGGC_GTCS                                                                                      
-LOGMNRC_DBNAME_UID_MAP                                                                              
+LOWER(ENAM                                                                                                                                            
+----------                                                                                                                                            
+smith                                                                                                                                                 
+allen                                                                                                                                                 
+ward                                                                                                                                                  
+jones                                                                                                                                                 
+martin                                                                                                                                                
+blake                                                                                                                                                 
+clark                                                                                                                                                 
+scott                                                                                                                                                 
+king                                                                                                                                                  
+turner                                                                                                                                                
+adams                                                                                                                                                 
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGMNR_LOG$                                                                                         
-LOGMNR_PROCESSED_LOG$                                                                               
-LOGMNR_SPILL$                                                                                       
-LOGMNR_AGE_SPILL$                                                                                   
-LOGMNR_RESTART_CKPT_TXINFO$                                                                         
-LOGMNR_ERROR$                                                                                       
-LOGMNR_RESTART_CKPT$                                                                                
-LOGMNR_FILTER$                                                                                      
-LOGMNR_SESSION_ACTIONS$                                                                             
-LOGMNR_PARAMETER$                                                                                   
-LOGMNR_SESSION$                                                                                     
+LOWER(ENAM                                                                                                                                            
+----------                                                                                                                                            
+james                                                                                                                                                 
+ford                                                                                                                                                  
+miller                                                                                                                                                
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGMNR_PROFILE_TABLE_STATS$                                                                         
-LOGMNR_PROFILE_PLSQL_STATS$                                                                         
-LOGMNRT_MDDL$                                                                                       
-REDO_DB                                                                                             
-REDO_LOG                                                                                            
-ROLLING$CONNECTIONS                                                                                 
-ROLLING$DATABASES                                                                                   
-ROLLING$DIRECTIVES                                                                                  
-ROLLING$EVENTS                                                                                      
-ROLLING$PARAMETERS                                                                                  
-ROLLING$PLAN                                                                                        
+14 rows selected.
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-ROLLING$STATISTICS                                                                                  
-ROLLING$STATUS                                                                                      
-SYSCATALOG                                                                                          
-CATALOG                                                                                             
-TAB                                                                                                 
-COL                                                                                                 
-TABQUOTAS                                                                                           
-SYSFILES                                                                                            
-PUBLICSYN                                                                                           
-MVIEW$_ADV_WORKLOAD                                                                                 
-MVIEW$_ADV_BASETABLE                                                                                
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-MVIEW$_ADV_SQLDEPEND                                                                                
-MVIEW$_ADV_PRETTY                                                                                   
-MVIEW$_ADV_TEMP                                                                                     
-MVIEW$_ADV_FILTER                                                                                   
-MVIEW$_ADV_LOG                                                                                      
-MVIEW$_ADV_FILTERINSTANCE                                                                           
-MVIEW$_ADV_LEVEL                                                                                    
-MVIEW$_ADV_ROLLUP                                                                                   
-MVIEW$_ADV_AJG                                                                                      
-MVIEW$_ADV_FJG                                                                                      
-MVIEW$_ADV_GC                                                                                       
+INITCAP(EN                                                                                                                                            
+----------                                                                                                                                            
+Smith                                                                                                                                                 
+Allen                                                                                                                                                 
+Ward                                                                                                                                                  
+Jones                                                                                                                                                 
+Martin                                                                                                                                                
+Blake                                                                                                                                                 
+Clark                                                                                                                                                 
+Scott                                                                                                                                                 
+King                                                                                                                                                  
+Turner                                                                                                                                                
+Adams                                                                                                                                                 
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-MVIEW$_ADV_CLIQUE                                                                                   
-MVIEW$_ADV_ELIGIBLE                                                                                 
-MVIEW$_ADV_OUTPUT                                                                                   
-MVIEW$_ADV_EXCEPTIONS                                                                               
-MVIEW$_ADV_PARAMETERS                                                                               
-MVIEW$_ADV_INFO                                                                                     
-MVIEW$_ADV_JOURNAL                                                                                  
-MVIEW$_ADV_PLAN                                                                                     
-MVIEW_WORKLOAD                                                                                      
-MVIEW_FILTER                                                                                        
-MVIEW_LOG                                                                                           
+INITCAP(EN                                                                                                                                            
+----------                                                                                                                                            
+James                                                                                                                                                 
+Ford                                                                                                                                                  
+Miller                                                                                                                                                
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-MVIEW_FILTERINSTANCE                                                                                
-MVIEW_RECOMMENDATIONS                                                                               
-MVIEW_EVALUATIONS                                                                                   
-MVIEW_EXCEPTIONS                                                                                    
-AQ$_QUEUE_TABLES                                                                                    
-AQ$_KEY_SHARD_MAP                                                                                   
-AQ$_QUEUES                                                                                          
-AQ$_SCHEDULES                                                                                       
-AQ$_INTERNET_AGENTS                                                                                 
-AQ$_INTERNET_AGENT_PRIVS                                                                            
-OL$                                                                                                 
+14 rows selected.
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-OL$HINTS                                                                                            
-OL$NODES                                                                                            
-LOGMNR_DICTSTATE$                                                                                   
-LOGMNRC_GTLO                                                                                        
-LOGMNRC_GTCS                                                                                        
-LOGMNRC_SEQ_GG                                                                                      
-LOGMNRC_CON_GG                                                                                      
-LOGMNRC_CONCOL_GG                                                                                   
-LOGMNRC_IND_GG                                                                                      
-LOGMNRC_INDCOL_GG                                                                                   
-LOGMNRC_SHARD_TS                                                                                    
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGMNRC_TSPART                                                                                      
-LOGMNRC_TS                                                                                          
-LOGMNRC_GSII                                                                                        
-LOGMNRC_GSBA                                                                                        
-LOGMNR_SEED$                                                                                        
-LOGMNR_DICTIONARY$                                                                                  
-LOGMNR_OBJ$                                                                                         
-LOGMNR_TAB$                                                                                         
-LOGMNR_COL$                                                                                         
-LOGMNR_ATTRCOL$                                                                                     
-LOGMNR_TS$                                                                                          
+UPPER(ENAM                                                                                                                                            
+----------                                                                                                                                            
+SMITH                                                                                                                                                 
+ALLEN                                                                                                                                                 
+WARD                                                                                                                                                  
+JONES                                                                                                                                                 
+MARTIN                                                                                                                                                
+BLAKE                                                                                                                                                 
+CLARK                                                                                                                                                 
+SCOTT                                                                                                                                                 
+KING                                                                                                                                                  
+TURNER                                                                                                                                                
+ADAMS                                                                                                                                                 
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGMNR_IND$                                                                                         
-LOGMNR_USER$                                                                                        
-LOGMNR_TABPART$                                                                                     
-LOGMNR_TABSUBPART$                                                                                  
-LOGMNR_TABCOMPART$                                                                                  
-LOGMNR_TYPE$                                                                                        
-LOGMNR_COLTYPE$                                                                                     
-LOGMNR_ATTRIBUTE$                                                                                   
-LOGMNR_LOB$                                                                                         
-LOGMNR_CON$                                                                                         
-LOGMNR_CONTAINER$                                                                                   
+UPPER(ENAM                                                                                                                                            
+----------                                                                                                                                            
+JAMES                                                                                                                                                 
+FORD                                                                                                                                                  
+MILLER                                                                                                                                                
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGMNR_CDEF$                                                                                        
-LOGMNR_CCOL$                                                                                        
-LOGMNR_ICOL$                                                                                        
-LOGMNR_LOBFRAG$                                                                                     
-LOGMNR_INDPART$                                                                                     
-LOGMNR_INDSUBPART$                                                                                  
-LOGMNR_INDCOMPART$                                                                                  
-LOGMNR_LOGMNR_BUILDLOG                                                                              
-LOGMNR_NTAB$                                                                                        
-LOGMNR_OPQTYPE$                                                                                     
-LOGMNR_SUBCOLTYPE$                                                                                  
+14 rows selected.
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGMNR_KOPM$                                                                                        
-LOGMNR_PROPS$                                                                                       
-LOGMNR_ENC$                                                                                         
-LOGMNR_REFCON$                                                                                      
-LOGMNR_IDNSEQ$                                                                                      
-LOGMNR_PARTOBJ$                                                                                     
-LOGMNRP_CTAS_PART_MAP                                                                               
-LOGMNR_SHARD_TS                                                                                     
-SCHEDULER_PROGRAM_ARGS                                                                              
-SCHEDULER_JOB_ARGS                                                                                  
-SCHEDULER_PROGRAM_ARGS_TBL                                                                          
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-SCHEDULER_JOB_ARGS_TBL                                                                              
-LOGSTDBY$PARAMETERS                                                                                 
-LOGSTDBY$EVENTS                                                                                     
-LOGSTDBY$APPLY_PROGRESS                                                                             
-LOGSTDBY$APPLY_MILESTONE                                                                            
-LOGSTDBY$SCN                                                                                        
-LOGSTDBY$FLASHBACK_SCN                                                                              
-LOGSTDBY$PLSQL                                                                                      
-LOGSTDBY$SKIP_TRANSACTION                                                                           
-LOGSTDBY$SKIP                                                                                       
-LOGSTDBY$SKIP_SUPPORT                                                                               
+CONCAT(ENAME,DEPTNO)                                                                                                                                  
+--------------------------------------------------                                                                                                    
+SMITH20                                                                                                                                               
+ALLEN30                                                                                                                                               
+WARD30                                                                                                                                                
+JONES20                                                                                                                                               
+MARTIN30                                                                                                                                              
+BLAKE30                                                                                                                                               
+CLARK10                                                                                                                                               
+SCOTT20                                                                                                                                               
+KING10                                                                                                                                                
+TURNER30                                                                                                                                              
+ADAMS20                                                                                                                                               
 
-TNAME                                                                                               
-----------------------------------------------------------------------------------------------------
-LOGSTDBY$HISTORY                                                                                    
-LOGSTDBY$EDS_TABLES                                                                                 
-STUDENT                                                                                             
-TEST                                                                                                
-PRODUCT_PRIVS                                                                                       
-SQLPLUS_PRODUCT_PROFILE                                                                             
-PRODUCT_USER_PROFILE                                                                                
-HELP                                                                                                
+CONCAT(ENAME,DEPTNO)                                                                                                                                  
+--------------------------------------------------                                                                                                    
+JAMES30                                                                                                                                               
+FORD20                                                                                                                                                
+MILLER10                                                                                                                                              
 
-151 rows selected.
+14 rows selected.
 
-SQL> spool off
+
+ENAME||DEPTNO                                                                                                                                         
+--------------------------------------------------                                                                                                    
+SMITH20                                                                                                                                               
+ALLEN30                                                                                                                                               
+WARD30                                                                                                                                                
+JONES20                                                                                                                                               
+MARTIN30                                                                                                                                              
+BLAKE30                                                                                                                                               
+CLARK10                                                                                                                                               
+SCOTT20                                                                                                                                               
+KING10                                                                                                                                                
+TURNER30                                                                                                                                              
+ADAMS20                                                                                                                                               
+
+ENAME||DEPTNO                                                                                                                                         
+--------------------------------------------------                                                                                                    
+JAMES30                                                                                                                                               
+FORD20                                                                                                                                                
+MILLER10                                                                                                                                              
+
+14 rows selected.
+
+select concat(ename, empno, deptno) from emp
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments 
+
+
+concat function accepts only two arguments
+
+CONCAT(ENAME,EMPNO)                                                                                                                                   
+--------------------------------------------------                                                                                                    
+SMITH7369                                                                                                                                             
+ALLEN7499                                                                                                                                             
+WARD7521                                                                                                                                              
+JONES7566                                                                                                                                             
+MARTIN7654                                                                                                                                            
+BLAKE7698                                                                                                                                             
+CLARK7782                                                                                                                                             
+SCOTT7788                                                                                                                                             
+KING7839                                                                                                                                              
+TURNER7844                                                                                                                                            
+ADAMS7876                                                                                                                                             
+
+CONCAT(ENAME,EMPNO)                                                                                                                                   
+--------------------------------------------------                                                                                                    
+JAMES7900                                                                                                                                             
+FORD7902                                                                                                                                              
+MILLER7934                                                                                                                                            
+
+14 rows selected.
+
+
+LENGTH(JOB) LENGTH(ENAME)                                                                                                                             
+----------- -------------                                                                                                                             
+          5             5                                                                                                                             
+          8             5                                                                                                                             
+          8             4                                                                                                                             
+          7             5                                                                                                                             
+          8             6                                                                                                                             
+          7             5                                                                                                                             
+          7             5                                                                                                                             
+          7             5                                                                                                                             
+          9             4                                                                                                                             
+          8             6                                                                                                                             
+          5             5                                                                                                                             
+
+LENGTH(JOB) LENGTH(ENAME)                                                                                                                             
+----------- -------------                                                                                                                             
+          5             5                                                                                                                             
+          7             4                                                                                                                             
+          5             6                                                                                                                             
+
+14 rows selected.
+
+
+LENGTH('STRING')                                                                                                                                      
+----------------                                                                                                                                      
+               6                                                                                                                                      
+
+
+LENGTHB('STRING121')                                                                                                                                  
+--------------------                                                                                                                                  
+                   9                                                                                                                                  
+
+
+ENAME      LENGTHB(ENAME)                                                                                                                             
+---------- --------------                                                                                                                             
+SMITH                   5                                                                                                                             
+ALLEN                   5                                                                                                                             
+WARD                    4                                                                                                                             
+JONES                   5                                                                                                                             
+MARTIN                  6                                                                                                                             
+BLAKE                   5                                                                                                                             
+CLARK                   5                                                                                                                             
+SCOTT                   5                                                                                                                             
+KING                    4                                                                                                                             
+TURNER                  6                                                                                                                             
+ADAMS                   5                                                                                                                             
+
+ENAME      LENGTHB(ENAME)                                                                                                                             
+---------- --------------                                                                                                                             
+JAMES                   5                                                                                                                             
+FORD                    4                                                                                                                             
+MILLER                  6                                                                                                                             
+
+14 rows selected.
+
+
+ENAME      INSTR(ENAME,'A')                                                                                                                           
+---------- ----------------                                                                                                                           
+SMITH                     0                                                                                                                           
+ALLEN                     1                                                                                                                           
+WARD                      2                                                                                                                           
+JONES                     0                                                                                                                           
+MARTIN                    2                                                                                                                           
+BLAKE                     3                                                                                                                           
+CLARK                     3                                                                                                                           
+SCOTT                     0                                                                                                                           
+KING                      0                                                                                                                           
+TURNER                    0                                                                                                                           
+ADAMS                     1                                                                                                                           
+
+ENAME      INSTR(ENAME,'A')                                                                                                                           
+---------- ----------------                                                                                                                           
+JAMES                     2                                                                                                                           
+FORD                      0                                                                                                                           
+MILLER                    0                                                                                                                           
+
+14 rows selected.
+
+
+ENAME      INSTR(ENAME,'A')                                                                                                                           
+---------- ----------------                                                                                                                           
+SMITH                     0                                                                                                                           
+ALLEN                     0                                                                                                                           
+WARD                      0                                                                                                                           
+JONES                     0                                                                                                                           
+MARTIN                    0                                                                                                                           
+BLAKE                     0                                                                                                                           
+CLARK                     0                                                                                                                           
+SCOTT                     0                                                                                                                           
+KING                      0                                                                                                                           
+TURNER                    0                                                                                                                           
+ADAMS                     0                                                                                                                           
+
+ENAME      INSTR(ENAME,'A')                                                                                                                           
+---------- ----------------                                                                                                                           
+JAMES                     0                                                                                                                           
+FORD                      0                                                                                                                           
+MILLER                    0                                                                                                                           
+
+14 rows selected.
+
+Observation: 'a' is not detected from the table but 'A' is detected. Because in the table values are in the uppercase
+
+ENAME      LPAD(ENAME,12)                                                                                                                             
+---------- ------------------------------------------------                                                                                           
+SMITH             SMITH                                                                                                                               
+ALLEN             ALLEN                                                                                                                               
+WARD               WARD                                                                                                                               
+JONES             JONES                                                                                                                               
+MARTIN           MARTIN                                                                                                                               
+BLAKE             BLAKE                                                                                                                               
+CLARK             CLARK                                                                                                                               
+SCOTT             SCOTT                                                                                                                               
+KING               KING                                                                                                                               
+TURNER           TURNER                                                                                                                               
+ADAMS             ADAMS                                                                                                                               
+
+ENAME      LPAD(ENAME,12)                                                                                                                             
+---------- ------------------------------------------------                                                                                           
+JAMES             JAMES                                                                                                                               
+FORD               FORD                                                                                                                               
+MILLER           MILLER                                                                                                                               
+
+14 rows selected.
+
+
+ENAME      LPAD(ENAME,12,'-')                                                                                                                         
+---------- ------------------------------------------------                                                                                           
+SMITH      -------SMITH                                                                                                                               
+ALLEN      -------ALLEN                                                                                                                               
+WARD       --------WARD                                                                                                                               
+JONES      -------JONES                                                                                                                               
+MARTIN     ------MARTIN                                                                                                                               
+BLAKE      -------BLAKE                                                                                                                               
+CLARK      -------CLARK                                                                                                                               
+SCOTT      -------SCOTT                                                                                                                               
+KING       --------KING                                                                                                                               
+TURNER     ------TURNER                                                                                                                               
+ADAMS      -------ADAMS                                                                                                                               
+
+ENAME      LPAD(ENAME,12,'-')                                                                                                                         
+---------- ------------------------------------------------                                                                                           
+JAMES      -------JAMES                                                                                                                               
+FORD       --------FORD                                                                                                                               
+MILLER     ------MILLER                                                                                                                               
+
+14 rows selected.
+
+lpad function making the string length to 12 by adding the specified character at the left
+
+SUBSTR(ENAME                                                                                                                                          
+------------                                                                                                                                          
+SMI                                                                                                                                                   
+ALL                                                                                                                                                   
+WAR                                                                                                                                                   
+JON                                                                                                                                                   
+MAR                                                                                                                                                   
+BLA                                                                                                                                                   
+CLA                                                                                                                                                   
+SCO                                                                                                                                                   
+KIN                                                                                                                                                   
+TUR                                                                                                                                                   
+ADA                                                                                                                                                   
+
+SUBSTR(ENAME                                                                                                                                          
+------------                                                                                                                                          
+JAM                                                                                                                                                   
+FOR                                                                                                                                                   
+MIL                                                                                                                                                   
+
+14 rows selected.
+
+
+SUBSTR(E                                                                                                                                              
+--------                                                                                                                                              
+TH                                                                                                                                                    
+EN                                                                                                                                                    
+RD                                                                                                                                                    
+ES                                                                                                                                                    
+IN                                                                                                                                                    
+KE                                                                                                                                                    
+RK                                                                                                                                                    
+TT                                                                                                                                                    
+NG                                                                                                                                                    
+ER                                                                                                                                                    
+MS                                                                                                                                                    
+
+SUBSTR(E                                                                                                                                              
+--------                                                                                                                                              
+ES                                                                                                                                                    
+RD                                                                                                                                                    
+ER                                                                                                                                                    
+
+14 rows selected.
+
+
+ENAME      INSTR(ENAME,'A',1,1)                                                                                                                       
+---------- --------------------                                                                                                                       
+SMITH                         0                                                                                                                       
+ALLEN                         1                                                                                                                       
+WARD                          2                                                                                                                       
+JONES                         0                                                                                                                       
+MARTIN                        2                                                                                                                       
+BLAKE                         3                                                                                                                       
+CLARK                         3                                                                                                                       
+SCOTT                         0                                                                                                                       
+KING                          0                                                                                                                       
+TURNER                        0                                                                                                                       
+ADAMS                         1                                                                                                                       
+
+ENAME      INSTR(ENAME,'A',1,1)                                                                                                                       
+---------- --------------------                                                                                                                       
+JAMES                         2                                                                                                                       
+FORD                          0                                                                                                                       
+MILLER                        0                                                                                                                       
+
+14 rows selected.
+
+
+ENAME      INSTR(ENAME,'A',1,2)                                                                                                                       
+---------- --------------------                                                                                                                       
+SMITH                         0                                                                                                                       
+ALLEN                         0                                                                                                                       
+WARD                          0                                                                                                                       
+JONES                         0                                                                                                                       
+MARTIN                        0                                                                                                                       
+BLAKE                         0                                                                                                                       
+CLARK                         0                                                                                                                       
+SCOTT                         0                                                                                                                       
+KING                          0                                                                                                                       
+TURNER                        0                                                                                                                       
+ADAMS                         3                                                                                                                       
+
+ENAME      INSTR(ENAME,'A',1,2)                                                                                                                       
+---------- --------------------                                                                                                                       
+JAMES                         0                                                                                                                       
+FORD                          0                                                                                                                       
+MILLER                        0                                                                                                                       
+
+14 rows selected.
+
+
+ENAME                                                                                                                                                 
+----------                                                                                                                                            
+ADAMS                                                                                                                                                 
+
+
+LOWER(UPPER                                                                                                                                           
+-----------                                                                                                                                           
+hello world                                                                                                                                           
+
+Observation: all the letters are in lowercase
+
+LOWER(UPPER                                                                                                                                           
+-----------                                                                                                                                           
+hello world                                                                                                                                           
+
+
+LOW                                                                                                                                                   
+---                                                                                                                                                   
+200                                                                                                                                                   
+
+Observation: addition is result is displayed
+
+UPPER(LOWER(SYSDAT                                                                                                                                    
+------------------                                                                                                                                    
+05-OCT-23                                                                                                                                             
+
+Observation: sysdate is in uppercase
+
+CONCAT('TODAYIS:',SYSDATE)                                                                                                                            
+----------------------------                                                                                                                          
+Today is :05-OCT-23                                                                                                                                   
+
+concated string is displayed
+SELECT CONCAT(first_name, CONCAT (last_name, job_id)) FROM dual
+                                             *
+ERROR at line 1:
+ORA-00904: "JOB_ID": invalid identifier 
+
+
+
+LENGTH('ITISALOVELYDAYTODAY!')                                                                                                                        
+------------------------------                                                                                                                        
+                            25                                                                                                                        
+
+LPAD and RPAD take maximum of 3 arguments. If there are 2 arguments given, the padding happens by spaces
+
+LPAD(1000+300.                                                                                                                                        
+--------------                                                                                                                                        
+*******1300.66                                                                                                                                        
+
+
+REPLA                                                                                                                                                 
+-----                                                                                                                                                 
+99988                                                                                                                                                 
+
+
+ROUND(148.50)                                                                                                                                         
+-------------                                                                                                                                         
+          149                                                                                                                                         
+
+
+SYSDATE   TRUNC(SYS                                                                                                                                   
+--------- ---------                                                                                                                                   
+05-OCT-23 01-OCT-23                                                                                                                                   
+
+
+TRUNC(1902.92,-3)                                                                                                                                     
+-----------------                                                                                                                                     
+             1000                                                                                                                                     
+
+
+MOD(100.23,-3)                                                                                                                                        
+--------------                                                                                                                                        
+          1.23                                                                                                                                        
+
+first parameter is th number to rounded and second parameter is no. of decimals to be rounded
+
+LTRI                                                                                                                                                  
+----                                                                                                                                                  
+name                                                                                                                                                  
+
+
+LTRIM('N                                                                                                                                              
+--------                                                                                                                                              
+name                                                                                                                                                  
+
+
+LTR                                                                                                                                                   
+---                                                                                                                                                   
+123                                                                                                                                                   
+
+
+LTRIM('                                                                                                                                               
+-------                                                                                                                                               
+1000123                                                                                                                                               
+
+
+CHANGES                                                                                                                                               
+--------------                                                                                                                                        
+BLACK and BLUE                                                                                                                                        
+
+
+MOD(333,2)                                                                                                                                            
+----------                                                                                                                                            
+         1                                                                                                                                            
+
+
+ROUND(3344.45324,3)                                                                                                                                   
+-------------------                                                                                                                                   
+           3344.453                                                                                                                                   
+
+
+ROUND(3344,-1)                                                                                                                                        
+--------------                                                                                                                                        
+          3340                                                                                                                                        
+
