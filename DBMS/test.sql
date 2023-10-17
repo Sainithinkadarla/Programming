@@ -184,6 +184,27 @@ update emp e set e.grade = (select s.grade from (select s.grade from emp e join 
 
 
 
+assign 5 question 3
+
+
+SELECT  e.empno
+       ,e.ename
+       ,e.sal
+       ,d.deptno
+       ,d.dname
+       ,d.loc
+       ,e.job
+       ,e.ann_sal
+FROM emp e
+JOIN dept d
+ON e.deptno = d.deptno
+WHERE d.loc = 'CHICAGO' or e.job = 'ACCOUNTING'
+AND ann_sal > 28000
+AND sal not IN (3000, 2800)
+AND job != 'MANAGER'
+AND substr(e.empno, 3, 1) IN ('7', '8')
+ORDER BY e.deptno asc, e.job desc;
+
 
 
 
@@ -206,3 +227,28 @@ DELETE FROM EMP e1 WHERE EXISTS ( SELECT 1 FROM EMP e2 WHERE e1.EMPNO = e2.EMPNO
 
 
 select * from emp e1 where exists (SELECT 1 FROM EMP e2 WHERE e1.EMPNO = e2.EMPNO AND e1.ENAME = e2.ENAME AND e1.ROWID > e2.ROWID);
+
+
+
+
+
+SELECT empno, ename, sal, salgrade.grade
+FROM emp
+JOIN salgrade ON emp.sal BETWEEN salgrade.losal AND salgrade.hisal
+WHERE salgrade.grade IN (2, 3);
+
+
+
+
+
+select salgrade.grade from emp e join salgrade s on sal between s.losal and s.hisal;
+
+alter table emp add (grade int);
+update emp set emp.grade = (select s.grade from emp e join salgrade s on sal between s.losal and s.hisal);
+
+
+SELECT empno, ename, sal, salgrade.grade
+FROM emp
+JOIN salgrade ON emp.sal BETWEEN salgrade.losal AND salgrade.hisal
+ORDER BY salgrade.grade ASC;
+
