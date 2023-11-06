@@ -59,4 +59,7 @@ SELECT e.ename, e.sal FROM emp e JOIN emp f ON e.sal = f.sal WHERE f.ename IN ('
 select e.ename, e.job, e.sal from emp e left join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN');
 select e.ename, e.job, e.sal from emp e left join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN');
 
+-- 14th question
+select e.ename, d.dname, d.loc from emp e natural join dept d where d.loc in ('CHICAGO','BOSTON') and experience>(select experience from emp where ename='BLAKE');
+
 --select * from emp e join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN');
