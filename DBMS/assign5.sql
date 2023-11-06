@@ -62,4 +62,42 @@ select e.ename, e.job, e.sal from emp e left join emp m on e.job=m.job and m.ena
 -- 14th question
 select e.ename, d.dname, d.loc from emp e natural join dept d where d.loc in ('CHICAGO','BOSTON') and experience>(select experience from emp where ename='BLAKE');
 
---select * from emp e join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN');
+-- 15th question
+select ename from emp e natural join dept d where e.grade in (3,4) and d.dname in ('ACCOUNTING','RESEARCH') and e.sal > (select sal from emp where ename='ALLEN') and experience > (select sal from emp where ename='SMITH') order by experience ASC ;
+
+-- 16th question
+select es.ename, es.job from emp es join emp ea on es.job=ea.job where ea.ename in ('ALLEN','SMITH');
+
+-- 17th question
+
+select * from emp e join salgrade s on sal between s.losal and s.hisal natural join dept d where d.loc='CHICAGO';
+
+-- 18th question
+select e.ename, d.loc from emp e natural join dept d;
+
+-- 19th question
+select e.ename, d.dname from emp e natural join dept d where d.dname != 'SALES';
+
+-- 20th question
+select * from emp e natural join dept d where d.loc = 'CHICAGO' and sal between 2000 and 5000;
+
+-- 21th question
+select ee.empno, ee.ename, ee.sal from emp ee join emp em on ee.mgr=em.empno where ee.sal>em.sal;
+
+-- 22nd question
+select e.ename, e.grade, e.deptno, s.grade, e.HIREDATE from emp e join salgrade s on e.sal between s.losal and s.hisal where e.deptno in (10,30) and s.grade !=4 and e.HIREDATE='31-DEC-1982';  
+
+-- 23rd question
+select e.ename, e.job, d.dname, d.loc from emp e natural join dept d where job='MANAGER';
+
+-- 24th question
+select empno,ename, mgr  from emp where mgr=(select empno from emp where ename='JONES') or empno=(select mgr from emp where ename='JONES');
+
+-- 25th question
+select ename, sal from emp where ename='FORD' and sal = (select hisal from salgrade where grade = (select s.grade from emp e join salgrade s on e.sal between s.losal and s.hisal where e.ename='FORD')); 
+
+-- 26th question
+
+
+--select * from emp e join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN') select job from emp where ename in ('ALLEN','SMITH');@emp.sql;;
+
