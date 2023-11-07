@@ -97,7 +97,52 @@ select empno,ename, mgr  from emp where mgr=(select empno from emp where ename='
 select ename, sal from emp where ename='FORD' and sal = (select hisal from salgrade where grade = (select s.grade from emp e join salgrade s on e.sal between s.losal and s.hisal where e.ename='FORD')); 
 
 -- 26th question
+select e.ename, e.job, d.dname, e.mgr, e.sal, s.grade from emp e natural join dept d join salgrade s on e.sal between s.losal and s.hisal order by deptno, grade;
+
+-- 27th question
+select ename, job, mgr from emp where mgr is null;
+
+-- 28th question
+with emp_netpay (empno, ename, sal, comm, netpay) as (select empno, ename, sal, comm, sal+comm as netpay from emp),
+with greater_than_net (select distinct e.empno, e.ename, e.sal, e.comm,  n.ename, n.netpay from emp e join emp_netpay n on e.sal<=n.netpay)
+
+select distinct empno from greater_than_net;
 
 
+with emp_netpay (empno, ename, sal, comm, netpay) as (select empno, ename, sal, comm, sal+comm as netpay from emp)
+select distinct e.empno, e.ename, e.sal, e.comm,  n.ename, n.netpay from emp e join emp_netpay n on e.sal<=n.netpay;
+
+
+-- 29th question
+with emp_mgr as (select e.ename, e.sal, e.mgr from emp e join emp m on e.mgr=m.empno)
+select * from emp_mgr where ; 
+
+select e.empno, e.ename, e.sal, e.mgr from emp e join emp m on e.mgr=m.empno where e.sal<m.sal and e.sal > (select sal from emp));
+/*
+ 
+select * from emp_netpay;
+select * from emp e join emp_netpay n on e.empno=n.empno where e.sal<=n.netpay;
+
+
+
+select ee.empno, ee.ename, ee.sal from emp ee join emp em on ee.sal>em.sal;
 --select * from emp e join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN') select job from emp where ename in ('ALLEN','SMITH');@emp.sql;;
 
+
+WITH emp_mgr_sal AS (
+  SELECT e.empno, e.ename, e.sal, e.comm, m.sal AS mgr_sal
+  FROM emp e
+  JOIN emp m ON e.mgr = m.empno
+),
+emp_higher_mgr_sal AS (
+  SELECT e.empno, e.ename, e.sal, e.comm, e.mgr_sal, MAX(mgr_sal) higher_mgr_sal
+  FROM emp_mgr_sal e
+  JOIN emp m ON e.mgr = m.empno
+  GROUP BY e.empno, e.ename, e.sal, e.comm, e.mgr_sal
+)
+SELECT *
+FROM emp_higher_mgr_sal AS e
+WHERE e.sal < e.mgr_sal AND e.sal > e.higher_mgr_sal;
+
+
+*/
