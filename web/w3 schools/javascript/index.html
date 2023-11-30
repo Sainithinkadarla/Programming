@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .print
+        {
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-right: 150px;
+            margin-left: 80px;
+            /*height: 200px;
+            width: 50%;
+            background-color: powderblue;*/
+        }
+    </style>
+</head>
+<body>
+    <a href="./statements.html">Js Statements</a>
+    <a href="functions.html">Js Functions</a>
+    <a href="events.html">Js Events</a>
+    <a href="strings.html">Js Events</a>
+    <a href="arrays.html">Js Arrays</a>
+
+    <p id="reflector">This gone change when you click the button'<br>lets see</p>
+    <button onclick="func()">click me</button>
+    <input type="text" id="tf">
+    <button onclick="windowsalert()">alert</button>
+    <button class="console" onclick="cop()">Console</button>
+    <button class="print" onclick="window.print()">Print</button>
+    <script>
+        var x=1;
+        var y=1;
+        document.write(5+11);
+        window.alert(1+(y+1));
+        function func()
+        {
+            document.getElementById("reflector").innerHTML="<b>button clicked</b> "+x;
+            x=x+1;          
+        }
+        function windowsalert()
+        {
+            window.alert(5+11);
+        }
+        var z=0;
+        function cop()
+        {
+            console.log(5+(z+1))
+        }
+    </script>
+</body>
+</html>

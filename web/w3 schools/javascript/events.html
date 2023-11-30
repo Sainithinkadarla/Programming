@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">Home</a> <br> <br>
+    
+    <p id="demo" onmouseout="loaded()" onmouseover="mouseoverevent()">dsfsdaf</p>
+    <script>
+        
+        var x=0;
+        var y=0;
+        function loaded()
+        {
+            
+            document.getElementById("demo").innerHTML=(x++) + " mouse out";
+        }
+
+        function mouseoverevent()
+        {
+            document.getElementById("demo").innerHTML=(y++) + " mouse over";
+        }
+    </script>
+</body>
+</html>

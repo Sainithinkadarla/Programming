@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">Home</a> <br> <br>
+    <h2>JavaScript Functions</h2>
+    <button id="closure" onclick="output()">Click me</button><br><br>
+    <script>
+        function argfun(p1, p2)
+        {
+            return p1+p2;
+        }
+
+        document.write(argfun(2,3));
+        document.write("<br><br><h3>Nested functions</h3>")
+        document.write("The counter value is "+add());
+        function add()
+        {
+            let counter=0;
+            function addcounter(){counter+=1;};
+            addcounter();
+            addcounter();
+            addcounter();
+            addcounter();
+            addcounter();
+            return counter;
+        }
+        document.write("<br><br><h3>JavaScript Function closures</h3>");
+        document.write("<p>This is paragraph to get ouptut of javascript function closure : <span id='op'></span></p>");
+        
+        const countfunc = (() => {
+            let counter = 0;
+            return ()=> {counter+=1; return counter};
+        })();
+        function output()
+        {
+            document.getElementById("op").innerHTML=countfunc();
+        }
+        </script>
+    
+
+</body>
+</html>

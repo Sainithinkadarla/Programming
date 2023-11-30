@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">Home</a><br><br>
+    <a href="#while">while loop</a><br><br>
+    <a href="#dowhile">Do-while loop</a>
+    <script>
+        var txt="";
+        const arr=[40,5,100,25,11];
+        document.write("<br><br><h2>For loop</h2>");     
+        for(let i =0 ; i<arr.length; i++)
+        {
+            txt+= arr[i] +"<br>";
+        }
+        document.write(txt);
+        
+        document.write("<br><br><h3>For in loop using to iterate properties of objects </h3>");     
+        const person = {fname:"John", lname:"Doe", age:25}; 
+        
+        txt = "";
+        for (let x in person) {
+            txt += person[x] + " ";
+        }
+        
+        document.write(txt);
+        document.write("<br><br><h3>For of loop using to iterate over an array </h3>");     
+        const cars = ["BMW", "Volvo", "Mini"];
+        
+        let text = "";
+        for (let x of cars) {
+            text += x;
+        }
+        document.write(text);
+        document.write("<br><br><h2 id='while'>While loop</h2>");
+        var i=0;
+        txt="";
+        while(i < 10)
+        {
+            txt+=i+"<br>";
+            i++;
+        }
+        document.write(txt);
+        document.write("<br><br><h2 id='dowhile'>Do-While loop</h2>");
+        i=0;
+        txt="";
+        do
+        {
+            txt+=(i++)+"<br>";
+        }while(i<10);
+        document.write(txt);
+        </script>
+</body>
+</html>

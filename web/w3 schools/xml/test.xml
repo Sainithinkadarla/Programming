@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<style>
+   Cricket {
+      display: block;
+      margin-bottom: 30px;
+   }
+  
+   name {
+      font-weight: bold;
+      color: seagreen;
+   }
+  
+   hundreds, fifties {
+      color: lightslategray;
+   }
+
+</style>
+<Sports>
+   <Cricket>
+      <name>Virat Kohli</name>
+      <hundreds>75</hundreds>
+      <fifties>130</fifties>
+   </Cricket>
+
+   <Cricket>
+      <name>Joe Root</name>
+      <hundreds>46</hundreds>
+      <fifties>99</fifties>
+   </Cricket>
+    
+   <Cricket>
+      <name>Steve Smith</name>
+      <hundreds>44</hundreds>
+      <fifties>70</fifties>
+   </Cricket>
+
+   <Cricket>
+      <name>Faf du Plessis</name>
+      <hundreds>23</hundreds>
+      <fifties>66</fifties>
+   </Cricket>
+</Sports>
