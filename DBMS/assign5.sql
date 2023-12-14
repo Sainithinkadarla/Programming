@@ -29,35 +29,35 @@ drop table emp_grade;
 
 
 SELECT * from emp ORDER BY grade ASC;
-
--- 5th question
 SELECT empno, ename, sal, salgrade.grade FROM emp JOIN salgrade ON emp.sal BETWEEN salgrade.losal AND salgrade.hisal ORDER BY salgrade.grade ASC;
 
--- 6th question
+-- 5th question
 SELECT * from emp e  join salgrade s on e.sal between s.losal and s.hisal where e.grade in (2,3);
 
--- 7th question 
+-- 6th question
 SELECT * from emp e join salgrade s on e.sal BETWEEN s.losal and s.hisal where e.grade in (4,5) and job in ('ANALYST', 'MANAGER');
 
--- 8th question
+-- 7th question 
 SELECT e.empno, e.sal, d.dname, e.grade, e.experience, e.ann_sal from emp e join dept d on e.deptno=d.deptno where e.deptno in (10,20);
 
--- 9th question
+-- 8th question
 SELECT * from dept left join emp on emp.deptno = dept.deptno;
 
--- 10th question
+-- 9th question
 SELECT * from emp e join emp m on e.mgr=m.empno where e.experience > m.experience;
 
--- 11th question
+-- 10th question
 SELECT * from emp e join emp em on e.job=em.job where e.deptno = 20 and em.deptno=10;
+
+-- 11th question
+SELECT e.ename, e.sal FROM emp e JOIN emp f ON e.sal = f.sal WHERE f.ename IN ('FORD', 'SMITH') ORDER BY e.sal DESC;
 
 
 -- 12th question
-SELECT e.ename, e.sal FROM emp e JOIN emp f ON e.sal = f.sal WHERE f.ename IN ('FORD', 'SMITH') ORDER BY e.sal DESC;
+select e.ename, e.job, e.sal from emp e left join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN');
 
 -- 13th question 
-select e.ename, e.job, e.sal from emp e left join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN');
-select e.ename, e.job, e.sal from emp e left join emp m on e.job=m.job and m.ename='MILLER' where m.ename is not null or e.sal > (select sal from emp where ename='ALLEN');
+select distinct e.ename, e.job, e.sal from emp e join emp s on e.sal > (s.sal + s.comm) where s.job = 'SALESMAN' ;
 
 -- 14th question
 select e.ename, d.dname, d.loc from emp e natural join dept d where d.loc in ('CHICAGO','BOSTON') and experience>(select experience from emp where ename='BLAKE');
