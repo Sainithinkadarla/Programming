@@ -47,7 +47,7 @@ select * from emp where empno in (select mgr from emp group by mgr having count(
 select max(sal) from emp where sal<(select max(sal) from emp);
 
 -- 14th question
-select deptno, max(sal) from emp group by deptno ;
+
 
 /*
 --- test area
