@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Programming_4732db73"
+        },
+        {
+            "type": "java",
             "name": "JoinDemo",
             "request": "launch",
             "mainClass": "JoinDemo",
