@@ -46,6 +46,12 @@ WHERE CHAR_LENGTH(your_column) = 3
 
 
 
+SELECT *
+FROM (
+  SELECT e.*, rownum AS row_num
+  FROM emp e
+)
+WHERE row_num <= 5;
 
 
 
